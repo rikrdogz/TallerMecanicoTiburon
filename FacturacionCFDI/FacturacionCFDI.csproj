@@ -68,6 +68,7 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="BDH\Herramienta.cs" />
     <Compile Include="ListaFacturas.xaml.cs">
       <DependentUpon>ListaFacturas.xaml</DependentUpon>
     </Compile>

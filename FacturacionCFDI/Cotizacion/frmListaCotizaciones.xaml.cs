@@ -12,7 +12,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace FacturacionCFDI
+namespace FacturacionCFDI.Cotizaciones
 {
     /// <summary>
     /// Lógica de interacción para frmListaCotizaciones.xaml

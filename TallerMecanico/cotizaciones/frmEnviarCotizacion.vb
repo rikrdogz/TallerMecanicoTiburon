@@ -50,6 +50,10 @@ Public Class frmEnviarCotizacion
             CuerpoCorreo.Attachments.Add(ArchivoAdjunto)
 
             SMTP_correo.Send(CuerpoCorreo)
+
+            ArchivoAdjunto.Dispose()
+            ArchivoAdjunto = Nothing
+            SMTP_correo = Nothing
             MessageBox.Show("Correo enviado, favor revisar en su correo la seccion de ENVIADOS", "Correo", MessageBoxButtons.OK, MessageBoxIcon.Information)
             Me.Close()
 

@@ -23,7 +23,6 @@ Partial Class frmCotizacion_Editar
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Dim DataGridViewCellStyle9 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmCotizacion_Editar))
         Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
@@ -32,10 +31,22 @@ Partial Class frmCotizacion_Editar
         Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle7 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle8 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmCotizacion_Editar))
         Me.lblcant = New System.Windows.Forms.Label()
         Me.txtObservacion = New System.Windows.Forms.TextBox()
         Me.Panel3 = New System.Windows.Forms.Panel()
         Me.TablaPiezas = New System.Windows.Forms.DataGridView()
+        Me.iddetalle = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.id = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.np = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.cant = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.desc = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.costo = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.precio = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.mano = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.importe = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.total = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.marcado = New System.Windows.Forms.DataGridViewComboBoxColumn()
         Me.Panel4 = New System.Windows.Forms.Panel()
         Me.tabla_eliminar = New System.Windows.Forms.DataGridView()
         Me.iddet = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -93,17 +104,6 @@ Partial Class frmCotizacion_Editar
         Me.btnProducto = New System.Windows.Forms.Button()
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.Label2 = New System.Windows.Forms.Label()
-        Me.iddetalle = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.id = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.np = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.cant = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.desc = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.costo = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.precio = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.mano = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.importe = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.total = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.marcado = New System.Windows.Forms.DataGridViewComboBoxColumn()
         Me.Panel3.SuspendLayout()
         CType(Me.TablaPiezas, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel4.SuspendLayout()
@@ -182,6 +182,118 @@ Partial Class frmCotizacion_Editar
         Me.TablaPiezas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.TablaPiezas.Size = New System.Drawing.Size(1070, 327)
         Me.TablaPiezas.TabIndex = 7
+        '
+        'iddetalle
+        '
+        Me.iddetalle.HeaderText = "iddetalle"
+        Me.iddetalle.Name = "iddetalle"
+        Me.iddetalle.Visible = False
+        '
+        'id
+        '
+        Me.id.HeaderText = "id"
+        Me.id.Name = "id"
+        Me.id.ReadOnly = True
+        Me.id.Visible = False
+        Me.id.Width = 25
+        '
+        'np
+        '
+        DataGridViewCellStyle1.Font = New System.Drawing.Font("Consolas", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.np.DefaultCellStyle = DataGridViewCellStyle1
+        Me.np.HeaderText = "np"
+        Me.np.Name = "np"
+        Me.np.ReadOnly = True
+        Me.np.Width = 80
+        '
+        'cant
+        '
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle2.Font = New System.Drawing.Font("Consolas", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.Maroon
+        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White
+        Me.cant.DefaultCellStyle = DataGridViewCellStyle2
+        Me.cant.HeaderText = "cant"
+        Me.cant.Name = "cant"
+        Me.cant.ReadOnly = True
+        Me.cant.Width = 55
+        '
+        'desc
+        '
+        Me.desc.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        DataGridViewCellStyle3.Font = New System.Drawing.Font("Consolas", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.DarkBlue
+        DataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White
+        Me.desc.DefaultCellStyle = DataGridViewCellStyle3
+        Me.desc.HeaderText = "desc"
+        Me.desc.Name = "desc"
+        Me.desc.ReadOnly = True
+        '
+        'costo
+        '
+        DataGridViewCellStyle4.Format = "C2"
+        DataGridViewCellStyle4.NullValue = Nothing
+        Me.costo.DefaultCellStyle = DataGridViewCellStyle4
+        Me.costo.HeaderText = "costo"
+        Me.costo.Name = "costo"
+        Me.costo.ReadOnly = True
+        Me.costo.Visible = False
+        Me.costo.Width = 70
+        '
+        'precio
+        '
+        DataGridViewCellStyle5.Format = "C2"
+        DataGridViewCellStyle5.NullValue = Nothing
+        Me.precio.DefaultCellStyle = DataGridViewCellStyle5
+        Me.precio.HeaderText = "precio"
+        Me.precio.Name = "precio"
+        Me.precio.ReadOnly = True
+        Me.precio.Visible = False
+        Me.precio.Width = 65
+        '
+        'mano
+        '
+        DataGridViewCellStyle6.Format = "C2"
+        DataGridViewCellStyle6.NullValue = Nothing
+        Me.mano.DefaultCellStyle = DataGridViewCellStyle6
+        Me.mano.HeaderText = "mano"
+        Me.mano.Name = "mano"
+        Me.mano.ReadOnly = True
+        Me.mano.Visible = False
+        Me.mano.Width = 75
+        '
+        'importe
+        '
+        DataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        DataGridViewCellStyle7.Font = New System.Drawing.Font("Consolas", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle7.Format = "C2"
+        DataGridViewCellStyle7.NullValue = Nothing
+        DataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.Maroon
+        Me.importe.DefaultCellStyle = DataGridViewCellStyle7
+        Me.importe.HeaderText = "importe"
+        Me.importe.Name = "importe"
+        Me.importe.ReadOnly = True
+        '
+        'total
+        '
+        DataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        DataGridViewCellStyle8.Font = New System.Drawing.Font("Consolas", 14.25!, System.Drawing.FontStyle.Bold)
+        DataGridViewCellStyle8.Format = "C2"
+        DataGridViewCellStyle8.NullValue = Nothing
+        DataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.DarkRed
+        Me.total.DefaultCellStyle = DataGridViewCellStyle8
+        Me.total.HeaderText = "total"
+        Me.total.Name = "total"
+        Me.total.ReadOnly = True
+        '
+        'marcado
+        '
+        Me.marcado.HeaderText = "marcado"
+        Me.marcado.Items.AddRange(New Object() {"REAL", "AGREGADO (*)", "ANEXADO (+)", "E", "F", "PENDIENTE", "COTIZADO"})
+        Me.marcado.Name = "marcado"
+        Me.marcado.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.marcado.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
+        Me.marcado.Width = 110
         '
         'Panel4
         '
@@ -937,118 +1049,6 @@ Partial Class frmCotizacion_Editar
         Me.Label2.TabIndex = 6
         Me.Label2.Text = "ATQ :"
         Me.Label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        '
-        'iddetalle
-        '
-        Me.iddetalle.HeaderText = "iddetalle"
-        Me.iddetalle.Name = "iddetalle"
-        Me.iddetalle.Visible = False
-        '
-        'id
-        '
-        Me.id.HeaderText = "id"
-        Me.id.Name = "id"
-        Me.id.ReadOnly = True
-        Me.id.Visible = False
-        Me.id.Width = 25
-        '
-        'np
-        '
-        DataGridViewCellStyle1.Font = New System.Drawing.Font("Consolas", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.np.DefaultCellStyle = DataGridViewCellStyle1
-        Me.np.HeaderText = "np"
-        Me.np.Name = "np"
-        Me.np.ReadOnly = True
-        Me.np.Width = 80
-        '
-        'cant
-        '
-        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle2.Font = New System.Drawing.Font("Consolas", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.Maroon
-        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White
-        Me.cant.DefaultCellStyle = DataGridViewCellStyle2
-        Me.cant.HeaderText = "cant"
-        Me.cant.Name = "cant"
-        Me.cant.ReadOnly = True
-        Me.cant.Width = 55
-        '
-        'desc
-        '
-        Me.desc.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        DataGridViewCellStyle3.Font = New System.Drawing.Font("Consolas", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.DarkBlue
-        DataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White
-        Me.desc.DefaultCellStyle = DataGridViewCellStyle3
-        Me.desc.HeaderText = "desc"
-        Me.desc.Name = "desc"
-        Me.desc.ReadOnly = True
-        '
-        'costo
-        '
-        DataGridViewCellStyle4.Format = "C2"
-        DataGridViewCellStyle4.NullValue = Nothing
-        Me.costo.DefaultCellStyle = DataGridViewCellStyle4
-        Me.costo.HeaderText = "costo"
-        Me.costo.Name = "costo"
-        Me.costo.ReadOnly = True
-        Me.costo.Visible = False
-        Me.costo.Width = 70
-        '
-        'precio
-        '
-        DataGridViewCellStyle5.Format = "C2"
-        DataGridViewCellStyle5.NullValue = Nothing
-        Me.precio.DefaultCellStyle = DataGridViewCellStyle5
-        Me.precio.HeaderText = "precio"
-        Me.precio.Name = "precio"
-        Me.precio.ReadOnly = True
-        Me.precio.Visible = False
-        Me.precio.Width = 65
-        '
-        'mano
-        '
-        DataGridViewCellStyle6.Format = "C2"
-        DataGridViewCellStyle6.NullValue = Nothing
-        Me.mano.DefaultCellStyle = DataGridViewCellStyle6
-        Me.mano.HeaderText = "mano"
-        Me.mano.Name = "mano"
-        Me.mano.ReadOnly = True
-        Me.mano.Visible = False
-        Me.mano.Width = 75
-        '
-        'importe
-        '
-        DataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        DataGridViewCellStyle7.Font = New System.Drawing.Font("Consolas", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle7.Format = "C2"
-        DataGridViewCellStyle7.NullValue = Nothing
-        DataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.Maroon
-        Me.importe.DefaultCellStyle = DataGridViewCellStyle7
-        Me.importe.HeaderText = "importe"
-        Me.importe.Name = "importe"
-        Me.importe.ReadOnly = True
-        '
-        'total
-        '
-        DataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        DataGridViewCellStyle8.Font = New System.Drawing.Font("Consolas", 14.25!, System.Drawing.FontStyle.Bold)
-        DataGridViewCellStyle8.Format = "C2"
-        DataGridViewCellStyle8.NullValue = Nothing
-        DataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.DarkRed
-        Me.total.DefaultCellStyle = DataGridViewCellStyle8
-        Me.total.HeaderText = "total"
-        Me.total.Name = "total"
-        Me.total.ReadOnly = True
-        '
-        'marcado
-        '
-        Me.marcado.HeaderText = "marcado"
-        Me.marcado.Items.AddRange(New Object() {"REAL", "AGREGADO (*)", "ANEXADO (+)", "E", "F", "PENDIENTE", "COTIZADO"})
-        Me.marcado.Name = "marcado"
-        Me.marcado.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.marcado.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
-        Me.marcado.Width = 110
         '
         'frmCotizacion_Editar
         '

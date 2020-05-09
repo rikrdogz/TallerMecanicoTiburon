@@ -31,7 +31,12 @@ namespace FacturacionCFDI
 
         private void BtnIrACotizaciones_Click(object sender, RoutedEventArgs e)
         {
-            _MainFrame.Navigate(new frmListaCotizaciones());
+            _MainFrame.Navigate(new Cotizacion.frmListaCotizaciones());
+        }
+
+        private void BtnIrAFacturasCFDI_Click(object sender, RoutedEventArgs e)
+        {
+            _MainFrame.Navigate(new ListaFacturas());
         }
     }
 }

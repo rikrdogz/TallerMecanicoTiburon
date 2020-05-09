@@ -50,7 +50,7 @@ Public Class frmServicio
             If tablaResultado.Rows.Count > 0 Then
                 For Each xRow As DataRow In tablaResultado.Rows
                     tablaAutos.Rows.Add(
-                        xRow.Item("id"), xRow.Item("fecha"), xRow.Item("ncamion"), xRow.Item("nuevo"), xRow.Item("anterior"), xRow.Item("marca"), xRow.Item("year"), xRow.Item("estado"), xRow.Item("numero"), xRow.Item("para"), xRow.Item("km"), xRow.Item("oc"), xRow.Item("factura"), xRow.Item("SC"), xRow.Item("cotizar"), Val(xRow.Item("valor"))
+                        xRow.Item("id"), xRow.Item("fecha"), xRow.Item("ncamion"), xRow.Item("nuevo"), xRow.Item("anterior"), xRow.Item("marca"), xRow.Item("year"), xRow.Item("estado"), xRow.Item("numero"), xRow.Item("para"), xRow.Item("km"), xRow.Item("oc"), xRow.Item("factura"), xRow.Item("SC"), xRow.Item("cotizar"), Val(xRow.Item("valor")), Val(xRow.Item("total"))
                         )
                 Next
             End If
@@ -172,11 +172,14 @@ Public Class frmServicio
         If IndexServicio < 0 Then
             'Ocultar panel de titulo
             PanelTituloServicio.Hide()
+            lblTotalServicio.Hide()
             Return
         Else
+            lblTotalServicio.Show()
             PanelTituloServicio.Show()
         End If
         With tablaAutos.Rows(IndexServicio)
+            lblTotalServicio.Text = "Servicio: " + FormatCurrency(.Cells("total").Value.ToString)
             btnEdit.Text = "Editar: Servicio " & .Cells("servicio").Value
             lblNumeroServicio.Text = .Cells("servicio").Value.ToString
             lblATQ.Text = .Cells("nuevo").Value.ToString & "  -  " & .Cells("anterior").Value.ToString
@@ -551,4 +554,7 @@ Public Class frmServicio
         End If
     End Sub
 
+    Private Sub tablaAutos_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles tablaAutos.CellContentClick
+
+    End Sub
 End Class

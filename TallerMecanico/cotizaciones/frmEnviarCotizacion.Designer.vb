@@ -184,7 +184,7 @@ Partial Class frmEnviarCotizacion
         Me.btnEnviar.Location = New System.Drawing.Point(513, 309)
         Me.btnEnviar.Name = "btnEnviar"
         Me.btnEnviar.Size = New System.Drawing.Size(139, 38)
-        Me.btnEnviar.TabIndex = 4
+        Me.btnEnviar.TabIndex = 10
         Me.btnEnviar.Text = "Enviar"
         Me.btnEnviar.UseVisualStyleBackColor = False
         '

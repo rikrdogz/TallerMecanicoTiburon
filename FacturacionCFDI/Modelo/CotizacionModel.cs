@@ -5,7 +5,7 @@ using System.Text;
 
 namespace FacturacionCFDI.Modelo
 {
-    class CotizacionModel
+    public class CotizacionModel
     {
         public int id { get; set; }
         public int numero { get; set; }
@@ -14,7 +14,7 @@ namespace FacturacionCFDI.Modelo
         public string camion { get; set; }
         public DateTime fecha { get; set; }
         public DateTime fecha_cot { get; set; }
-        public string total { get; set; }
+        public decimal total { get; set; }
         public decimal valor { get; set; }
         public string para { get; set; }
         public int ncamion { get; set; }
@@ -24,6 +24,6 @@ namespace FacturacionCFDI.Modelo
         public string OC { get; set; }
         public string FACTURA { get; set; }
         public string ss { get; set; }
-        
+        public List<CotizacionDetalleModel> detalles { get; set; }
     }
 }

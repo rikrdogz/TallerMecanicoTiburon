@@ -56,7 +56,15 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="camiones\frmListaCamiones.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Cotizacion\frmListaCotizaciones.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Facturas\frmFacturarCotizacion.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -73,9 +81,18 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="BDH\Herramienta.cs" />
+    <Compile Include="camiones\frmListaCamiones.xaml.cs">
+      <DependentUpon>frmListaCamiones.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Cotizacion\frmListaCotizaciones.xaml.cs">
       <DependentUpon>frmListaCotizaciones.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Facturas\ConceptosCFDIModel.cs" />
+    <Compile Include="Facturas\ConceptosFacturasModel.cs" />
+    <Compile Include="Facturas\frmFacturarCotizacion.xaml.cs">
+      <DependentUpon>frmFacturarCotizacion.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Facturas\ImpuestosTrasladosModel.cs" />
     <Compile Include="ListaFacturas.xaml.cs">
       <DependentUpon>ListaFacturas.xaml</DependentUpon>
     </Compile>
@@ -85,6 +102,8 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Modelo\CamionModel.cs" />
+    <Compile Include="Modelo\CotizacionDetalleModel.cs" />
     <Compile Include="Modelo\CotizacionModel.cs" />
     <Compile Include="Modelo\FacturaModel.cs" />
     <Compile Include="Modelo\JsonRespuestaModel.cs" />

@@ -14,6 +14,7 @@ using System.Windows.Shapes;
 using System.Net;
 using System.IO;
 using Newtonsoft.Json;
+using System.Diagnostics;
 
 namespace FacturacionCFDI
 {
@@ -29,39 +30,54 @@ namespace FacturacionCFDI
 
         private void BtnObtenerFacturas_Click(object sender, RoutedEventArgs e)
         {
+            Stopwatch sw = new Stopwatch();
+            this.Cursor = Cursors.AppStarting;
             WebRequest respuesta;
-            bool DatosRecibidos=false;
+            bool DatosRecibidos = false;
             Modelo.JsonRespuestaModel ResultadoConsulta;
-            respuesta = WebRequest.Create("http://devfactura.in/api/v3/cfdi33/list");
-            respuesta.ContentType = "application/json";
-            respuesta.Headers.Add("F-PLUGIN", "9d4095c8f7ed5785cb14c0e3b033eeb8252416ed");
-            respuesta.Headers.Add("F-API-KEY", "JDJ5JDEwJDkvM21jRTlEdXJkY2pGRmJMdVlCQ2V1MWJxendHMnR2QXhWdE5IOXZlOVN6WEV2enY3Smxp");
-            respuesta.Headers.Add("F-SECRET-KEY", "JDJ5JDEwJG1jMUduQWdNMzcuLnRLTGU2L1Bjb2VXMS5WUnVuOXouei9ydjlxSktyUjVQSjMuS2puTmxD");
-
-            using(WebResponse response = respuesta.GetResponse())
+            try
             {
-                using (Stream stream = response.GetResponseStream())
+                
+                
+                sw.Start();
+                respuesta = WebRequest.Create("http://devfactura.in/api/v3/cfdi33/list");
+                respuesta.ContentType = "application/json";
+                respuesta.Headers.Add("F-PLUGIN", "9d4095c8f7ed5785cb14c0e3b033eeb8252416ed");
+                respuesta.Headers.Add("F-API-KEY", "JDJ5JDEwJDkvM21jRTlEdXJkY2pGRmJMdVlCQ2V1MWJxendHMnR2QXhWdE5IOXZlOVN6WEV2enY3Smxp");
+                respuesta.Headers.Add("F-SECRET-KEY", "JDJ5JDEwJG1jMUduQWdNMzcuLnRLTGU2L1Bjb2VXMS5WUnVuOXouei9ydjlxSktyUjVQSjMuS2puTmxD");
+                
+                using (WebResponse response = respuesta.GetResponse())
                 {
-                    StreamReader reader  = new StreamReader(stream);
-                    var json = reader.ReadToEnd();
-                     ResultadoConsulta = JsonConvert.DeserializeObject<Modelo.JsonRespuestaModel>(json);
-                    if (ResultadoConsulta != null)
+                    using (Stream stream = response.GetResponseStream())
                     {
-                        if (ResultadoConsulta.data != null)
+                        StreamReader reader = new StreamReader(stream);
+                        var json = reader.ReadToEnd();
+                        ResultadoConsulta = JsonConvert.DeserializeObject<Modelo.JsonRespuestaModel>(json);
+                        if (ResultadoConsulta != null)
                         {
-                            DatosRecibidos = true;
+                            if (ResultadoConsulta.data != null)
+                            {
+                                DatosRecibidos = true;
+                            }
                         }
+
                     }
 
                 }
+                sw.Stop();
+                lbltiempo.Content = "Tiempo: " + sw.ElapsedMilliseconds.ToString();
+                this.Cursor = Cursors.Arrow;
+                if (DatosRecibidos)
+                {
 
+                    GridFacturas.ItemsSource = ResultadoConsulta.data;
+                }
             }
-
-            if (DatosRecibidos)
+            catch (Exception ex)
             {
-               
-                GridFacturas.ItemsSource = ResultadoConsulta.data;
+                MessageBox.Show(ex.Message);
             }
+            
                
 
         }

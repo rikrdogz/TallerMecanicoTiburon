@@ -316,9 +316,10 @@ Public Class frmServicio_Agregar
                     valores &= "'" & CBCotizar.Text & "',"
                     valores &= "'" & txtOC.Text & "',"
                     valores &= My.Settings.Iva & ","
+                    valores &= "0,"
                     valores &= NTotal.Value
 
-                    consultaActualizar = "INSERT INTO servicios (fecha,ncamion,nuevo,anterior,marca,year,para,estado,km,cotizar,OC,iva,valor) VALUES (" & valores & ")"
+                    consultaActualizar = "INSERT INTO servicios (fecha,ncamion,nuevo,anterior,marca,year,para,estado,km,cotizar,OC,iva,valor, total) VALUES (" & valores & ")"
                     If tool.ActualizarDatosTransaccion(transaccionActualizar, consultaActualizar) Then
                         tablaConsulta = tool.ObtenerTablaTransaccion(transaccionActualizar, "SELECT max(id) FROM servicios")
                     Else

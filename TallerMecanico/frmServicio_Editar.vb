@@ -776,7 +776,7 @@ Public Class frmServicio_Editar
                 Next
                 'ACTUALIZAR TITULO
 
-                consulta = "UPDATE servicios SET estado='" & CBEstado.Text & "', para='" & txtObservacion.Text & "', km='" & txtKM.Text & "', cotizar='" & CBCotizar.Text & "', OC='" & txtOC.Text & "', valor=" & NTotal.Value & ", iva=" & My.Settings.Iva & " WHERE id=" & NFolio.Value
+                consulta = "UPDATE servicios SET estado='" & CBEstado.Text & "', para='" & txtObservacion.Text & "', km='" & txtKM.Text & "', cotizar='" & CBCotizar.Text & "', OC='" & txtOC.Text & "', total=" & NTotal.Value & ", iva=" & My.Settings.Iva & " WHERE id=" & NFolio.Value
 
                 If tool.ActualizarDatosTransaccion(transaccionActualizar, consulta) Then
                     'VERIFICAR SI TIENE COTIZACION

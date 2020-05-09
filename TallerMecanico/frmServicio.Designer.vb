@@ -23,22 +23,22 @@ Partial Class frmServicio
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmServicio))
-        Dim DataGridViewCellStyle29 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle28 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle32 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle30 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle31 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle26 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle27 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle17 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle18 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle19 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle20 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle21 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle22 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle23 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle24 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle25 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle15 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle16 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle7 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle8 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle9 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle10 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle11 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle12 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle13 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle14 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.btnCambiarATQ = New System.Windows.Forms.Button()
         Me.Mover = New System.Windows.Forms.Button()
@@ -84,22 +84,6 @@ Partial Class frmServicio
         Me.lblATQ = New System.Windows.Forms.Label()
         Me.Panel4 = New System.Windows.Forms.Panel()
         Me.tablaAutos = New System.Windows.Forms.DataGridView()
-        Me.servicio = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.fecha = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.idauto = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.nuevo = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.anterior = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.marca = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.año = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.estado = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.cotizacion = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.observacion = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.km = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.oc = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.fac = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.ss = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.cotizar = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.ColTotalServ = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Panel8 = New System.Windows.Forms.Panel()
         Me.lblcount = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
@@ -129,6 +113,24 @@ Partial Class frmServicio
         Me.Panel5 = New System.Windows.Forms.Panel()
         Me.btnPendiente = New System.Windows.Forms.Button()
         Me.Label4 = New System.Windows.Forms.Label()
+        Me.lblTotalServicio = New System.Windows.Forms.Label()
+        Me.servicio = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.fecha = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.idauto = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.nuevo = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.anterior = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.marca = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.año = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.estado = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.cotizacion = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.observacion = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.km = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.oc = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.fac = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.ss = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.cotizar = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.ColTotalServ = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.total = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Panel1.SuspendLayout()
         Me.Panel15.SuspendLayout()
         CType(Me.barra, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -300,14 +302,14 @@ Partial Class frmServicio
         Me.tablaRenglon.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal
         Me.tablaRenglon.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.tablaRenglon.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn1, Me.DataGridViewTextBoxColumn3, Me.precio, Me.Column2})
-        DataGridViewCellStyle29.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle29.BackColor = System.Drawing.SystemColors.Window
-        DataGridViewCellStyle29.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle29.ForeColor = System.Drawing.SystemColors.ControlText
-        DataGridViewCellStyle29.SelectionBackColor = System.Drawing.Color.DarkBlue
-        DataGridViewCellStyle29.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle29.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.tablaRenglon.DefaultCellStyle = DataGridViewCellStyle29
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window
+        DataGridViewCellStyle2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText
+        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.DarkBlue
+        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.tablaRenglon.DefaultCellStyle = DataGridViewCellStyle2
         Me.tablaRenglon.Dock = System.Windows.Forms.DockStyle.Fill
         Me.tablaRenglon.Location = New System.Drawing.Point(3, 3)
         Me.tablaRenglon.Name = "tablaRenglon"
@@ -329,9 +331,9 @@ Partial Class frmServicio
         '
         'precio
         '
-        DataGridViewCellStyle28.Format = "C2"
-        DataGridViewCellStyle28.NullValue = Nothing
-        Me.precio.DefaultCellStyle = DataGridViewCellStyle28
+        DataGridViewCellStyle1.Format = "C2"
+        DataGridViewCellStyle1.NullValue = Nothing
+        Me.precio.DefaultCellStyle = DataGridViewCellStyle1
         Me.precio.HeaderText = "Precio + Mano"
         Me.precio.Name = "precio"
         Me.precio.Width = 75
@@ -438,14 +440,14 @@ Partial Class frmServicio
         Me.tabladetalle.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal
         Me.tabladetalle.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.tabladetalle.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.cantidad, Me.np, Me.descripcion, Me.precio_s, Me.Column1, Me.realizado, Me.inv})
-        DataGridViewCellStyle32.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle32.BackColor = System.Drawing.SystemColors.Window
-        DataGridViewCellStyle32.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle32.ForeColor = System.Drawing.SystemColors.ControlText
-        DataGridViewCellStyle32.SelectionBackColor = System.Drawing.Color.DarkBlue
-        DataGridViewCellStyle32.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle32.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.tabladetalle.DefaultCellStyle = DataGridViewCellStyle32
+        DataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window
+        DataGridViewCellStyle5.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText
+        DataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.DarkBlue
+        DataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.tabladetalle.DefaultCellStyle = DataGridViewCellStyle5
         Me.tabladetalle.Dock = System.Windows.Forms.DockStyle.Fill
         Me.tabladetalle.Location = New System.Drawing.Point(3, 3)
         Me.tabladetalle.Name = "tabladetalle"
@@ -474,18 +476,18 @@ Partial Class frmServicio
         '
         'precio_s
         '
-        DataGridViewCellStyle30.Format = "C2"
-        DataGridViewCellStyle30.NullValue = Nothing
-        Me.precio_s.DefaultCellStyle = DataGridViewCellStyle30
+        DataGridViewCellStyle3.Format = "C2"
+        DataGridViewCellStyle3.NullValue = Nothing
+        Me.precio_s.DefaultCellStyle = DataGridViewCellStyle3
         Me.precio_s.HeaderText = "Mano + Precio"
         Me.precio_s.Name = "precio_s"
         Me.precio_s.Width = 65
         '
         'Column1
         '
-        DataGridViewCellStyle31.Format = "d"
-        DataGridViewCellStyle31.NullValue = Nothing
-        Me.Column1.DefaultCellStyle = DataGridViewCellStyle31
+        DataGridViewCellStyle4.Format = "d"
+        DataGridViewCellStyle4.NullValue = Nothing
+        Me.Column1.DefaultCellStyle = DataGridViewCellStyle4
         Me.Column1.HeaderText = "fecha"
         Me.Column1.Name = "Column1"
         Me.Column1.Width = 80
@@ -520,6 +522,7 @@ Partial Class frmServicio
         '
         Me.Panel16.BackColor = System.Drawing.Color.Transparent
         Me.Panel16.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Panel16.Controls.Add(Me.lblTotalServicio)
         Me.Panel16.Controls.Add(Me.lblObserv)
         Me.Panel16.Controls.Add(Me.Label7)
         Me.Panel16.Dock = System.Windows.Forms.DockStyle.Fill
@@ -531,14 +534,13 @@ Partial Class frmServicio
         '
         'lblObserv
         '
-        Me.lblObserv.AutoSize = True
         Me.lblObserv.BackColor = System.Drawing.Color.Transparent
-        Me.lblObserv.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.lblObserv.Dock = System.Windows.Forms.DockStyle.Top
         Me.lblObserv.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblObserv.ForeColor = System.Drawing.Color.Black
         Me.lblObserv.Location = New System.Drawing.Point(0, 20)
         Me.lblObserv.Name = "lblObserv"
-        Me.lblObserv.Size = New System.Drawing.Size(28, 24)
+        Me.lblObserv.Size = New System.Drawing.Size(235, 24)
         Me.lblObserv.TabIndex = 1
         Me.lblObserv.Text = "   "
         '
@@ -674,188 +676,34 @@ Partial Class frmServicio
         Me.tablaAutos.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal
         Me.tablaAutos.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Sunken
         Me.tablaAutos.ColumnHeadersHeight = 32
-        Me.tablaAutos.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.servicio, Me.fecha, Me.idauto, Me.nuevo, Me.anterior, Me.marca, Me.año, Me.estado, Me.cotizacion, Me.observacion, Me.km, Me.oc, Me.fac, Me.ss, Me.cotizar, Me.ColTotalServ})
-        DataGridViewCellStyle26.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle26.BackColor = System.Drawing.SystemColors.Window
-        DataGridViewCellStyle26.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle26.ForeColor = System.Drawing.SystemColors.ControlText
-        DataGridViewCellStyle26.SelectionBackColor = System.Drawing.Color.DarkBlue
-        DataGridViewCellStyle26.SelectionForeColor = System.Drawing.Color.White
-        DataGridViewCellStyle26.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.tablaAutos.DefaultCellStyle = DataGridViewCellStyle26
+        Me.tablaAutos.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.servicio, Me.fecha, Me.idauto, Me.nuevo, Me.anterior, Me.marca, Me.año, Me.estado, Me.cotizacion, Me.observacion, Me.km, Me.oc, Me.fac, Me.ss, Me.cotizar, Me.ColTotalServ, Me.total})
+        DataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle15.BackColor = System.Drawing.SystemColors.Window
+        DataGridViewCellStyle15.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle15.ForeColor = System.Drawing.SystemColors.ControlText
+        DataGridViewCellStyle15.SelectionBackColor = System.Drawing.Color.DarkBlue
+        DataGridViewCellStyle15.SelectionForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.tablaAutos.DefaultCellStyle = DataGridViewCellStyle15
         Me.tablaAutos.Dock = System.Windows.Forms.DockStyle.Fill
         Me.tablaAutos.Location = New System.Drawing.Point(5, 145)
         Me.tablaAutos.MultiSelect = False
         Me.tablaAutos.Name = "tablaAutos"
         Me.tablaAutos.ReadOnly = True
-        DataGridViewCellStyle27.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle27.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle27.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle27.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle27.Padding = New System.Windows.Forms.Padding(3)
-        DataGridViewCellStyle27.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle27.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle27.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.tablaAutos.RowHeadersDefaultCellStyle = DataGridViewCellStyle27
+        DataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle16.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle16.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle16.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle16.Padding = New System.Windows.Forms.Padding(3)
+        DataGridViewCellStyle16.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle16.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle16.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.tablaAutos.RowHeadersDefaultCellStyle = DataGridViewCellStyle16
         Me.tablaAutos.RowHeadersVisible = False
         Me.tablaAutos.RowTemplate.Height = 32
         Me.tablaAutos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.tablaAutos.Size = New System.Drawing.Size(703, 336)
         Me.tablaAutos.TabIndex = 5
-        '
-        'servicio
-        '
-        DataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle17.Font = New System.Drawing.Font("Consolas", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle17.SelectionBackColor = System.Drawing.Color.Maroon
-        Me.servicio.DefaultCellStyle = DataGridViewCellStyle17
-        Me.servicio.Frozen = True
-        Me.servicio.HeaderText = "servicio"
-        Me.servicio.Name = "servicio"
-        Me.servicio.ReadOnly = True
-        Me.servicio.Width = 65
-        '
-        'fecha
-        '
-        DataGridViewCellStyle18.Format = "d"
-        DataGridViewCellStyle18.NullValue = Nothing
-        Me.fecha.DefaultCellStyle = DataGridViewCellStyle18
-        Me.fecha.Frozen = True
-        Me.fecha.HeaderText = "fecha"
-        Me.fecha.Name = "fecha"
-        Me.fecha.ReadOnly = True
-        Me.fecha.Width = 70
-        '
-        'idauto
-        '
-        Me.idauto.HeaderText = "idauto"
-        Me.idauto.Name = "idauto"
-        Me.idauto.ReadOnly = True
-        Me.idauto.Visible = False
-        Me.idauto.Width = 60
-        '
-        'nuevo
-        '
-        DataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle19.Font = New System.Drawing.Font("Consolas", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.nuevo.DefaultCellStyle = DataGridViewCellStyle19
-        Me.nuevo.Frozen = True
-        Me.nuevo.HeaderText = "nuevo"
-        Me.nuevo.Name = "nuevo"
-        Me.nuevo.ReadOnly = True
-        '
-        'anterior
-        '
-        DataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle20.Font = New System.Drawing.Font("Consolas", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.anterior.DefaultCellStyle = DataGridViewCellStyle20
-        Me.anterior.Frozen = True
-        Me.anterior.HeaderText = "anterior"
-        Me.anterior.Name = "anterior"
-        Me.anterior.ReadOnly = True
-        '
-        'marca
-        '
-        Me.marca.HeaderText = "marca"
-        Me.marca.Name = "marca"
-        Me.marca.ReadOnly = True
-        Me.marca.Width = 80
-        '
-        'año
-        '
-        Me.año.HeaderText = "año"
-        Me.año.Name = "año"
-        Me.año.ReadOnly = True
-        Me.año.Visible = False
-        Me.año.Width = 45
-        '
-        'estado
-        '
-        DataGridViewCellStyle21.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle21.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
-        DataGridViewCellStyle21.Font = New System.Drawing.Font("Courier New", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.estado.DefaultCellStyle = DataGridViewCellStyle21
-        Me.estado.HeaderText = "estado"
-        Me.estado.Name = "estado"
-        Me.estado.ReadOnly = True
-        Me.estado.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.estado.Width = 80
-        '
-        'cotizacion
-        '
-        DataGridViewCellStyle22.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle22.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
-        DataGridViewCellStyle22.Font = New System.Drawing.Font("Consolas", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle22.ForeColor = System.Drawing.Color.Navy
-        DataGridViewCellStyle22.SelectionBackColor = System.Drawing.Color.Gray
-        DataGridViewCellStyle22.SelectionForeColor = System.Drawing.Color.Navy
-        Me.cotizacion.DefaultCellStyle = DataGridViewCellStyle22
-        Me.cotizacion.HeaderText = "cotizacion"
-        Me.cotizacion.Name = "cotizacion"
-        Me.cotizacion.ReadOnly = True
-        Me.cotizacion.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.cotizacion.Width = 70
-        '
-        'observacion
-        '
-        Me.observacion.HeaderText = "observacion"
-        Me.observacion.Name = "observacion"
-        Me.observacion.ReadOnly = True
-        Me.observacion.Visible = False
-        Me.observacion.Width = 120
-        '
-        'km
-        '
-        Me.km.HeaderText = "km"
-        Me.km.Name = "km"
-        Me.km.ReadOnly = True
-        Me.km.Visible = False
-        Me.km.Width = 40
-        '
-        'oc
-        '
-        DataGridViewCellStyle23.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.oc.DefaultCellStyle = DataGridViewCellStyle23
-        Me.oc.HeaderText = "oc"
-        Me.oc.Name = "oc"
-        Me.oc.ReadOnly = True
-        Me.oc.Width = 85
-        '
-        'fac
-        '
-        Me.fac.HeaderText = "fac"
-        Me.fac.Name = "fac"
-        Me.fac.ReadOnly = True
-        Me.fac.Width = 80
-        '
-        'ss
-        '
-        DataGridViewCellStyle24.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle24.BackColor = System.Drawing.Color.YellowGreen
-        DataGridViewCellStyle24.Font = New System.Drawing.Font("Consolas", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ss.DefaultCellStyle = DataGridViewCellStyle24
-        Me.ss.HeaderText = "solicitud compra"
-        Me.ss.MinimumWidth = 150
-        Me.ss.Name = "ss"
-        Me.ss.ReadOnly = True
-        Me.ss.Width = 150
-        '
-        'cotizar
-        '
-        Me.cotizar.HeaderText = "cotizar"
-        Me.cotizar.Name = "cotizar"
-        Me.cotizar.ReadOnly = True
-        Me.cotizar.Width = 25
-        '
-        'ColTotalServ
-        '
-        DataGridViewCellStyle25.Font = New System.Drawing.Font("Consolas", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle25.Format = "C2"
-        DataGridViewCellStyle25.NullValue = Nothing
-        Me.ColTotalServ.DefaultCellStyle = DataGridViewCellStyle25
-        Me.ColTotalServ.HeaderText = "Total Servicio"
-        Me.ColTotalServ.Name = "ColTotalServ"
-        Me.ColTotalServ.ReadOnly = True
         '
         'Panel8
         '
@@ -1220,6 +1068,178 @@ Partial Class frmServicio
         Me.Label4.Text = "Lista de los Servicios"
         Me.Label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
+        'lblTotalServicio
+        '
+        Me.lblTotalServicio.BackColor = System.Drawing.Color.Transparent
+        Me.lblTotalServicio.Dock = System.Windows.Forms.DockStyle.Top
+        Me.lblTotalServicio.Font = New System.Drawing.Font("Consolas", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblTotalServicio.ForeColor = System.Drawing.Color.ForestGreen
+        Me.lblTotalServicio.Location = New System.Drawing.Point(0, 44)
+        Me.lblTotalServicio.Name = "lblTotalServicio"
+        Me.lblTotalServicio.Size = New System.Drawing.Size(235, 24)
+        Me.lblTotalServicio.TabIndex = 2
+        Me.lblTotalServicio.Text = "Servicio $0.00"
+        '
+        'servicio
+        '
+        DataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle6.Font = New System.Drawing.Font("Consolas", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.Maroon
+        Me.servicio.DefaultCellStyle = DataGridViewCellStyle6
+        Me.servicio.Frozen = True
+        Me.servicio.HeaderText = "servicio"
+        Me.servicio.Name = "servicio"
+        Me.servicio.ReadOnly = True
+        Me.servicio.Width = 65
+        '
+        'fecha
+        '
+        DataGridViewCellStyle7.Format = "d"
+        DataGridViewCellStyle7.NullValue = Nothing
+        Me.fecha.DefaultCellStyle = DataGridViewCellStyle7
+        Me.fecha.Frozen = True
+        Me.fecha.HeaderText = "fecha"
+        Me.fecha.Name = "fecha"
+        Me.fecha.ReadOnly = True
+        Me.fecha.Width = 70
+        '
+        'idauto
+        '
+        Me.idauto.HeaderText = "idauto"
+        Me.idauto.Name = "idauto"
+        Me.idauto.ReadOnly = True
+        Me.idauto.Visible = False
+        Me.idauto.Width = 60
+        '
+        'nuevo
+        '
+        DataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle8.Font = New System.Drawing.Font("Consolas", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.nuevo.DefaultCellStyle = DataGridViewCellStyle8
+        Me.nuevo.Frozen = True
+        Me.nuevo.HeaderText = "nuevo"
+        Me.nuevo.Name = "nuevo"
+        Me.nuevo.ReadOnly = True
+        '
+        'anterior
+        '
+        DataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle9.Font = New System.Drawing.Font("Consolas", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.anterior.DefaultCellStyle = DataGridViewCellStyle9
+        Me.anterior.Frozen = True
+        Me.anterior.HeaderText = "anterior"
+        Me.anterior.Name = "anterior"
+        Me.anterior.ReadOnly = True
+        '
+        'marca
+        '
+        Me.marca.HeaderText = "marca"
+        Me.marca.Name = "marca"
+        Me.marca.ReadOnly = True
+        Me.marca.Width = 80
+        '
+        'año
+        '
+        Me.año.HeaderText = "año"
+        Me.año.Name = "año"
+        Me.año.ReadOnly = True
+        Me.año.Visible = False
+        Me.año.Width = 45
+        '
+        'estado
+        '
+        DataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle10.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        DataGridViewCellStyle10.Font = New System.Drawing.Font("Courier New", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.estado.DefaultCellStyle = DataGridViewCellStyle10
+        Me.estado.HeaderText = "estado"
+        Me.estado.Name = "estado"
+        Me.estado.ReadOnly = True
+        Me.estado.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.estado.Width = 80
+        '
+        'cotizacion
+        '
+        DataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle11.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        DataGridViewCellStyle11.Font = New System.Drawing.Font("Consolas", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle11.ForeColor = System.Drawing.Color.Navy
+        DataGridViewCellStyle11.SelectionBackColor = System.Drawing.Color.Gray
+        DataGridViewCellStyle11.SelectionForeColor = System.Drawing.Color.Navy
+        Me.cotizacion.DefaultCellStyle = DataGridViewCellStyle11
+        Me.cotizacion.HeaderText = "cotizacion"
+        Me.cotizacion.Name = "cotizacion"
+        Me.cotizacion.ReadOnly = True
+        Me.cotizacion.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.cotizacion.Width = 70
+        '
+        'observacion
+        '
+        Me.observacion.HeaderText = "observacion"
+        Me.observacion.Name = "observacion"
+        Me.observacion.ReadOnly = True
+        Me.observacion.Visible = False
+        Me.observacion.Width = 120
+        '
+        'km
+        '
+        Me.km.HeaderText = "km"
+        Me.km.Name = "km"
+        Me.km.ReadOnly = True
+        Me.km.Visible = False
+        Me.km.Width = 40
+        '
+        'oc
+        '
+        DataGridViewCellStyle12.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.oc.DefaultCellStyle = DataGridViewCellStyle12
+        Me.oc.HeaderText = "oc"
+        Me.oc.Name = "oc"
+        Me.oc.ReadOnly = True
+        Me.oc.Width = 85
+        '
+        'fac
+        '
+        Me.fac.HeaderText = "fac"
+        Me.fac.Name = "fac"
+        Me.fac.ReadOnly = True
+        Me.fac.Width = 80
+        '
+        'ss
+        '
+        DataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle13.BackColor = System.Drawing.Color.YellowGreen
+        DataGridViewCellStyle13.Font = New System.Drawing.Font("Consolas", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ss.DefaultCellStyle = DataGridViewCellStyle13
+        Me.ss.HeaderText = "solicitud compra"
+        Me.ss.MinimumWidth = 150
+        Me.ss.Name = "ss"
+        Me.ss.ReadOnly = True
+        Me.ss.Width = 150
+        '
+        'cotizar
+        '
+        Me.cotizar.HeaderText = "cotizar"
+        Me.cotizar.Name = "cotizar"
+        Me.cotizar.ReadOnly = True
+        Me.cotizar.Width = 25
+        '
+        'ColTotalServ
+        '
+        DataGridViewCellStyle14.Font = New System.Drawing.Font("Consolas", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle14.Format = "C2"
+        DataGridViewCellStyle14.NullValue = Nothing
+        Me.ColTotalServ.DefaultCellStyle = DataGridViewCellStyle14
+        Me.ColTotalServ.HeaderText = "Total Servicio"
+        Me.ColTotalServ.Name = "ColTotalServ"
+        Me.ColTotalServ.ReadOnly = True
+        '
+        'total
+        '
+        Me.total.HeaderText = "total"
+        Me.total.Name = "total"
+        Me.total.ReadOnly = True
+        '
         'frmServicio
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -1330,22 +1350,6 @@ Partial Class frmServicio
     Friend WithEvents realizado As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents inv As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents btnCambiarATQ As System.Windows.Forms.Button
-    Friend WithEvents servicio As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents fecha As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents idauto As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents nuevo As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents anterior As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents marca As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents año As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents estado As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents cotizacion As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents observacion As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents km As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents oc As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents fac As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents ss As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents cotizar As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents ColTotalServ As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn1 As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn3 As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents precio As System.Windows.Forms.DataGridViewTextBoxColumn
@@ -1357,4 +1361,22 @@ Partial Class frmServicio
     Friend WithEvents lblATQ As System.Windows.Forms.Label
     Friend WithEvents PictureBox2 As System.Windows.Forms.PictureBox
     Friend WithEvents TableLayoutPanel1 As System.Windows.Forms.TableLayoutPanel
+    Friend WithEvents lblTotalServicio As Label
+    Friend WithEvents servicio As DataGridViewTextBoxColumn
+    Friend WithEvents fecha As DataGridViewTextBoxColumn
+    Friend WithEvents idauto As DataGridViewTextBoxColumn
+    Friend WithEvents nuevo As DataGridViewTextBoxColumn
+    Friend WithEvents anterior As DataGridViewTextBoxColumn
+    Friend WithEvents marca As DataGridViewTextBoxColumn
+    Friend WithEvents año As DataGridViewTextBoxColumn
+    Friend WithEvents estado As DataGridViewTextBoxColumn
+    Friend WithEvents cotizacion As DataGridViewTextBoxColumn
+    Friend WithEvents observacion As DataGridViewTextBoxColumn
+    Friend WithEvents km As DataGridViewTextBoxColumn
+    Friend WithEvents oc As DataGridViewTextBoxColumn
+    Friend WithEvents fac As DataGridViewTextBoxColumn
+    Friend WithEvents ss As DataGridViewTextBoxColumn
+    Friend WithEvents cotizar As DataGridViewTextBoxColumn
+    Friend WithEvents ColTotalServ As DataGridViewTextBoxColumn
+    Friend WithEvents total As DataGridViewTextBoxColumn
 End Class

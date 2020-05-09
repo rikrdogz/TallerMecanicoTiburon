@@ -293,9 +293,11 @@ Public Class frmCotizacion_Editar
             sheet.Range("D42").Value = NIva.Value
             sheet.Range("D43").Value = NTotal.Value
             workbook.SaveToFile(Application.StartupPath & "\cot\cot" & NFolio.Value & ".xlsx")
+            workbook = Nothing
             MsgBox("GENERADO", MsgBoxStyle.Information)
         Catch ex As Exception
-            MsgBox(ex.Message, MsgBoxStyle.Information)
+            MsgBox(ex.Message, MsgBoxStyle.Information, "GENERANDO EXCEL")
+            Throw New Exception("Problemas generando el archivo excel")
         End Try
     End Sub
     Private Sub btnEditar_Click(sender As Object, e As EventArgs) Handles btnEditar.Click

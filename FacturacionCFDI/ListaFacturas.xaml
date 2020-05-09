@@ -22,7 +22,8 @@
             </Grid.RowDefinitions>
             <Label Grid.ColumnSpan="2">Lista de Facturas</Label>
             <StackPanel Grid.Row="1" Margin="10" Height="40" Orientation="Horizontal">
-                <Button x:Name="btnObtenerFacturas" Click="BtnObtenerFacturas_Click">Obtener Facturas</Button>
+                <Button x:Name="btnObtenerFacturas" Click="BtnObtenerFacturas_Click" Height="40" VerticalAlignment="Top">Obtener Facturas</Button>
+                <Label x:Name="lbltiempo" Content="Tiempo: "></Label>
             </StackPanel>
             <ListView x:Name="GridFacturas" Margin="10" Grid.Row="2">
                 <ListView.View>

@@ -16,7 +16,7 @@ namespace FacturacionCFDI.Facturas
         public string ValorUnitario { get; set; }
         public string Importe { get; set; }
         public string Descuento { get; set; }
-        public string Impuestos { get; set; } //modelo
+        public ImpuestosModel Impuestos { get; set; } //modelo
 
     }
 }

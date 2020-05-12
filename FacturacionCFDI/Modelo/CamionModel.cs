@@ -16,7 +16,7 @@ namespace FacturacionCFDI.Modelo
         public string placas { get; set; }
         public string year { get; set; }
         public string texto { get; set; }
-        public bool Activo { get; set; }
+        public int Activo { get; set; }
 
     }
 }

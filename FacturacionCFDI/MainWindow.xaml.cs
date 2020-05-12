@@ -22,6 +22,12 @@ namespace FacturacionCFDI
         public MainWindow()
         {
             InitializeComponent();
+            lblServerSAT.Content = BDH.HerramientaSAT.ServidorApiSAT;
+            if (BDH.HerramientaSAT.ServidorApiSAT == "http://devfactura.in/api/v3/cfdi33/")
+            {
+                
+                this.Background = Brushes.Yellow;
+            }
         }
 
         private void _MainFrame_Loaded(object sender, RoutedEventArgs e)
@@ -37,6 +43,11 @@ namespace FacturacionCFDI
         private void BtnIrAFacturasCFDI_Click(object sender, RoutedEventArgs e)
         {
             _MainFrame.Navigate(new ListaFacturas());
+        }
+
+        private void BtnIrACamiones_Click(object sender, RoutedEventArgs e)
+        {
+            _MainFrame.Navigate(new camiones.frmListaCamiones());
         }
     }
 }

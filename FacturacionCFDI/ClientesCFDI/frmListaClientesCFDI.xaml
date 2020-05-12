@@ -1,0 +1,33 @@
+﻿<Page x:Class="FacturacionCFDI.ClientesCFDI.frmListaClientesCFDI"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:FacturacionCFDI.ClientesCFDI"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Background="White"
+      Title="frmListaClientesCFDI">
+
+    <Grid>
+        <Grid Margin="10">
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <Button x:Name="btnObtenerClientes" Content="Obtener clientes" />
+            <ListBox Grid.Row="1">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal">
+                            <Label Content="{Binding RazonSocial} " />
+                            <Label Content="{Binding RazonSocial} " />
+                        </StackPanel>
+                        
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+        </Grid>
+    </Grid>
+</Page>

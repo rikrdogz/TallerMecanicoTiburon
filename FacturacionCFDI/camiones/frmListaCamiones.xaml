@@ -6,9 +6,109 @@
       xmlns:local="clr-namespace:FacturacionCFDI.camiones"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
+      Background="White"
+      TextElement.FontSize="20"
       Title="frmListaCamiones">
-
+   
     <Grid>
-        
+        <Grid  Margin="20">
+            
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition MinHeight="20" Height="auto"></RowDefinition>
+                <RowDefinition MinHeight="20" Height="auto"></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition MinHeight="20" Height="auto"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Label Content="Lista de Camiones" />
+            <StackPanel Grid.Row="1" Margin="5" Orientation="Horizontal">
+                <Button x:Name="btnObtenerCamiones" Click="BtnObtenerCamiones_Click" Content="Obtener Camiones" >
+                    <Button.ContextMenu>
+                        <ContextMenu>
+                            <MenuItem Header="Editar Camión"></MenuItem>
+                            <MenuItem Header="Agregar Servicio"></MenuItem>
+                            <MenuItem Header="Ver Servicios"></MenuItem>
+                        </ContextMenu>
+                    </Button.ContextMenu>    
+                </Button>
+                
+                <Label x:Name="lbltiempo" Content="Tiempo:" />
+            </StackPanel>
+            <StackPanel Grid.Row="2" Margin="5" Orientation="Horizontal">
+                <StackPanel Orientation="Horizontal">
+                    <Label Content="ATQ:" />
+                    <TextBox x:Name="txtATQ" MinWidth="100" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="20,0,0,0">
+                    <Label Content="RUTA:" />
+                    <TextBox x:Name="txtRuta" MinWidth="100" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="20,0,0,0">
+                    <Label Content="Activo:" />
+                    <CheckBox  x:Name="CheckActivo" IsChecked="True" Margin="5" Width="auto" VerticalAlignment="Center" />
+                </StackPanel>
+            </StackPanel>
+            <ListBox x:Name="BoxCamiones" Grid.Row="3" HorizontalContentAlignment="Stretch" >
+                <ListBox.ItemTemplate >
+                    <DataTemplate>
+                        <Grid >
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Border Grid.ColumnSpan="3" Background="GhostWhite" BorderBrush="Gainsboro" BorderThickness="0,0,0,1">
+                            </Border>
+                            <StackPanel Grid.Column="0" Orientation="Horizontal">
+                                <StackPanel Orientation="Horizontal">
+                                    <Label Content="{Binding nuevo}" />
+                                    <Label Content="{Binding texto}" />
+                                    <Label Content="{Binding anterior}" />
+                                </StackPanel>
+
+                            </StackPanel>
+                            <StackPanel Grid.Column="1" Margin="5" Orientation="Horizontal">
+                                <Button Background="ForestGreen" Foreground="White"  Content="Editar" Margin="3" />
+                                <Button Background="DarkBlue" Foreground="White" Content="Ver Servicios" Margin="3" />
+                                <Button Content="Agregar Servicios"  Margin="3"/>
+                            </StackPanel>
+                            <StackPanel Grid.Column="2" TextElement.FontSize="15" Orientation="Vertical">
+                                <Label Content="{Binding serie}" />
+                                <Label Content="{Binding placas}" />
+                                <Label Content="{Binding anio}" />
+                            </StackPanel>
+                        </Grid>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+            <ListView x:Name="GridCamiones" Grid.Row="3" Visibility="Hidden">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Header="ATQ" Width="150" DisplayMemberBinding="{Binding nuevo}" />
+                        <GridViewColumn Header="Ruta" Width="150" DisplayMemberBinding="{Binding anterior}" />
+                        <GridViewColumn Header="MARCA" Width="150" DisplayMemberBinding="{Binding marca}" />
+                        <GridViewColumn Header="Activo" Width="150" DisplayMemberBinding="{Binding Activo}" />
+                        <GridViewColumn  Header="Acciones" Width="220">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <StackPanel Orientation="Horizontal">
+                                        
+                                        <Button x:Name="btnVerOpciones" Content="..." Background="WhiteSmoke" Margin="5,0,0,0"  Click="BtnVerOpciones_Click">
+                                            <Button.ContextMenu>
+                                                <ContextMenu x:Name="cmButton">
+                                                    <MenuItem Header="Agregar Servicio" Padding="10" FontSize="20" Foreground="DarkBlue"/>
+                                                    <MenuItem Header="Ver Servicio Realizados" Padding="10" FontSize="20" Foreground="DarkBlue"/>
+                                                </ContextMenu>
+                                            </Button.ContextMenu>
+                                        </Button>
+                                    </StackPanel>
+                                    
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+        </Grid>
     </Grid>
 </Page>

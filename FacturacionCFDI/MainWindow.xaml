@@ -10,11 +10,16 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="auto" MinHeight="40"/>
             <RowDefinition/>
+            <RowDefinition Height="auto" MinHeight="40"/>
         </Grid.RowDefinitions>
         <StackPanel Orientation="Horizontal">
             <Button x:Name="BtnIrAFacturasCFDI" Click="BtnIrAFacturasCFDI_Click" Content="Facturas" Margin="5"/>
             <Button x:Name="btnIrACotizaciones" Click="BtnIrACotizaciones_Click" Content="Cotizaciones" Margin="5" />
+            <Button x:Name="btnIrACamiones" Click="BtnIrACamiones_Click" Content="Camiones" Margin="5" />
         </StackPanel>
         <Frame x:Name="_MainFrame" Grid.Row="1" NavigationUIVisibility="Hidden"   Margin="0" Padding="0"  Loaded="_MainFrame_Loaded" ></Frame>
+        <StackPanel Grid.Row="2">
+            <Label x:Name="lblServerSAT" Content="SAT"/>
+        </StackPanel>
     </Grid>
 </Window>

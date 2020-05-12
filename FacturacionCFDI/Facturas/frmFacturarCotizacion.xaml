@@ -23,21 +23,52 @@
                 <Label HorizontalAlignment="Center" Content="Luis Ricardo Genovez" />
                 <Label HorizontalAlignment="Center" Content="RFC" FontSize="16"/>
             </StackPanel>
-            <StackPanel Grid.Row="1">
-                <Label HorizontalAlignment="Center" Content="TERMOGAS" />
-                <Label HorizontalAlignment="Center" Content="RFC" FontSize="16"/>
+            <StackPanel Grid.Row="1" Orientation="Horizontal">
+                <StackPanel MinWidth="600">
+                    <Label HorizontalAlignment="Center" Padding="0" Margin="0" Content="TERMOGAS" />
+                    <Label HorizontalAlignment="Center" Padding="0" Margin="0" Content="RFC" FontSize="16"/>
+                    <StackPanel Orientation="Horizontal">
+                        <Label HorizontalAlignment="Left" Content="OC:" FontSize="16"/>
+                        <Label HorizontalAlignment="Left"  FontWeight="DemiBold" Content="012548" FontSize="18"/>
+                    </StackPanel>
+                    
+                </StackPanel>
+                <StackPanel>
+                    <Button x:Name="btnFacturar" Content="Facturar" Click="BtnFacturar_Click"   />
+                </StackPanel>
             </StackPanel>
             <StackPanel Grid.Row="2" Orientation="Horizontal">
                 <StackPanel Orientation="Horizontal" Margin="10" Height="auto"  HorizontalAlignment="Left" >
                     <Label Content="Uso de CFDI" Width="auto" VerticalAlignment="Center"/>
-                    <ComboBox Background="White" MinWidth="200" VerticalAlignment="Center">
+                    <ComboBox  Background="White" MinWidth="200" VerticalAlignment="Center">
                         <ComboBoxItem Content="Gastos en General" />
                     </ComboBox>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" Margin="10" Height="auto" HorizontalAlignment="Left">
                     <Label Content="IVA" Width="auto" VerticalAlignment="Center"/>
-                    <ComboBox Background="White" MinWidth="200" VerticalAlignment="Center">
-                        <ComboBoxItem Content="8% FRONTERIZO" />
+                    <ComboBox x:Name="BoxIva" Background="White" SelectionChanged="BoxIva_SelectionChanged" MinWidth="200" VerticalAlignment="Center">
+                        <ComboBox.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel>
+                                    <Label Foreground="Black" Content="{Binding Descripcion}" />
+                                </StackPanel>
+
+                            </DataTemplate>
+                        </ComboBox.ItemTemplate>
+                    </ComboBox>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="10" Height="auto" HorizontalAlignment="Left">
+                    <Label Content="Forma de Pago" Width="auto" VerticalAlignment="Center"/>
+                    <ComboBox x:Name="BoxFormaPagos" MaxWidth="300" ItemsSource="{Binding}" Background="White" MinWidth="200" VerticalAlignment="Center">
+                        <ComboBox.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel>
+                                    <Label Foreground="Black" Content="{Binding descripcion}" />
+                                </StackPanel>
+                                
+                            </DataTemplate>
+                        </ComboBox.ItemTemplate>
+                        
                     </ComboBox>
                 </StackPanel>
             </StackPanel>
@@ -60,6 +91,41 @@
                     </GridView>
                 </ListView.View>
             </ListView>
+            <Grid Grid.Row="4" >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="2*"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <StackPanel>
+                    <Label Content="Comentarios" />
+                </StackPanel>
+                <Grid x:Name="GridTotales" Grid.Column="1" Margin="0,0,10,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                    </Grid.RowDefinitions>
+                    <Label Grid.Row="0" Content="Subtotal"/>
+                    <StackPanel Grid.Row="1" Orientation="Horizontal">
+                        <Label  Content="Iva"/>
+                        <Label x:Name="lblIvaTasa" Foreground="DimGray" VerticalAlignment="Center" Content="0.00" FontSize="16"/>
+                    </StackPanel>
+                    
+                    <Label Grid.Row="2" Content="Total"/>
+                    <Label x:Name="lblSubtotal" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Right" Content="0.00"/>
+                    <Label x:Name="lblIvaImporte" Grid.Row="1" Grid.Column="1" 
+                           HorizontalAlignment="Right" 
+                           Content="0.00"/>
+                    <Label x:Name="lblTotal" Grid.Row="2" Grid.Column="1" FontStretch="Expanded"
+                           FontWeight="Bold" HorizontalAlignment="Right" 
+                           Content="0.00"/>
+                </Grid>
+                
+            </Grid>
         </Grid>
     </Grid>
 </Page>

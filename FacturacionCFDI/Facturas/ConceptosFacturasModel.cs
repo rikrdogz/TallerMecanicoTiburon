@@ -5,7 +5,7 @@ using System.Text;
 
 namespace FacturacionCFDI.Facturas
 {
-    class ConceptosFacturasModel
+    public class ConceptosFacturasModel
     {
         public int ClaveProdServ { get; set; }
         public int Cantidad { get; set; }

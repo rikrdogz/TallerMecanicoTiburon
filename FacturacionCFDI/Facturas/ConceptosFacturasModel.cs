@@ -7,14 +7,14 @@ namespace FacturacionCFDI.Facturas
 {
     public class ConceptosFacturasModel
     {
-        public int ClaveProdServ { get; set; }
-        public int Cantidad { get; set; }
+        public string ClaveProdServ { get; set; }
+        public decimal Cantidad { get; set; }
         public string ClaveUnidad { get; set; }
-        public string Unidad { get; set; }
+        public string  Unidad { get; set; }
         public decimal ValorUnitario { get; set; }
         public string Descripcion { get; set; }
         public decimal Descuento { get; set; }
         public ImpuestosTrasladosModel Impuestos { get; set; }
-        public decimal Importe { get; set; }
+        //public decimal Importe { get; set; }
     }
 }

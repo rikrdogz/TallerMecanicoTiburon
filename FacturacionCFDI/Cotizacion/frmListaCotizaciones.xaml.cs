@@ -94,5 +94,11 @@ namespace FacturacionCFDI.Cotizacion
             
 
         }
+
+        private void BtnVerClientes_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow xMain = Window.GetWindow(this) as MainWindow;
+            xMain._MainFrame.Navigate(new ClientesCFDI.frmListaClientesCFDI());
+        }
     }
 }

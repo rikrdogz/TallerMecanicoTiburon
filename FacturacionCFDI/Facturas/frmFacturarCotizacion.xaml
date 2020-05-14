@@ -30,11 +30,31 @@
                     <StackPanel Orientation="Horizontal">
                         <Label HorizontalAlignment="Left" Content="OC:" FontSize="16"/>
                         <Label HorizontalAlignment="Left"  FontWeight="DemiBold" Content="012548" FontSize="18"/>
+                        <Label HorizontalAlignment="Left" Content="UID Cliente:" FontSize="16"/>
+                        <TextBox x:Name="txtUIDCliente" HorizontalAlignment="Left"  FontWeight="DemiBold" Text="5eb07b3a8c6a9" MinWidth="100" FontSize="18"/>
+
+                        <Label HorizontalAlignment="Left" Content="id serie:" FontSize="16"/>
+                        <TextBox x:Name="txtIDSerie" HorizontalAlignment="Left"  FontWeight="DemiBold" Text="1" MinWidth="50" FontSize="18"/>
                     </StackPanel>
                     
                 </StackPanel>
                 <StackPanel>
                     <Button x:Name="btnFacturar" Content="Facturar" Click="BtnFacturar_Click"   />
+                    <ListBox x:Name="BoxSeriesCfdi" MaxHeight="100">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal">
+                                    <Label Content="{Binding SerieID}"/>
+                                    <Label Content="{Binding SerieName}"/>
+                                    <Label Content="{Binding SerieType}"/>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+                </StackPanel>
+                <StackPanel>
+                    <Label x:Name="lblEstadoFacturado" FontWeight="Bold" FontSize="22" Content="Sin Facturar"/>
+                    <Label x:Name="lblUuidSAT" Content=""   MinWidth="50"/>
                 </StackPanel>
             </StackPanel>
             <StackPanel Grid.Row="2" Orientation="Horizontal">

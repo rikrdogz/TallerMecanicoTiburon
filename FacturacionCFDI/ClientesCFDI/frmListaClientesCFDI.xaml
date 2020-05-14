@@ -16,13 +16,14 @@
                 <RowDefinition />
                 <RowDefinition />
             </Grid.RowDefinitions>
-            <Button x:Name="btnObtenerClientes" Content="Obtener clientes" />
-            <ListBox Grid.Row="1">
+            <Button x:Name="btnObtenerClientes" Content="Obtener clientes" Click="BtnObtenerClientes_Click" />
+            <ListBox x:Name="BoxClientes" Grid.Row="1">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <StackPanel Orientation="Horizontal">
-                            <Label Content="{Binding RazonSocial} " />
-                            <Label Content="{Binding RazonSocial} " />
+                            <Label Content="{Binding RazonSocial}" />
+                            <Label Content="{Binding RFC}" />
+                            <TextBox Text="{Binding UID}" />
                         </StackPanel>
                         
                     </DataTemplate>

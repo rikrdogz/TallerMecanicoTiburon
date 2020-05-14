@@ -28,6 +28,7 @@ namespace FacturacionCFDI.Facturas
         {
             InitializeComponent();
 
+            ObtenerSeriesCFDI();
             //seleccionando 1 elemento
             BoxFormaPagos.SelectedIndex = 0;
             BoxIva.SelectedIndex = 0;
@@ -38,8 +39,13 @@ namespace FacturacionCFDI.Facturas
                 {
                     Cantidad = concepto.cantidad,
                     Descripcion = concepto.descripcion,
-                    ValorUnitario = concepto.valor
-                });
+                    ValorUnitario = concepto.valor,
+                    ClaveProdServ = "78181500",
+                    ClaveUnidad = "E48",
+                    Unidad = "Unidad de servicio",
+                    Descuento=0
+
+            });
             }
             GridConceptos.ItemsSource = ListaConceptosFacturasCFDI;
             CalcularImporte();
@@ -55,9 +61,25 @@ namespace FacturacionCFDI.Facturas
             ListaIvaValores.Add(new IvaValoresModel() { CodigoImpuesto = "002", Descripcion = "FEDERAL 8%", IvaTasa = 0.08m });
             BoxIva.ItemsSource = ListaIvaValores;
 
+        }
+        private void ObtenerSeriesCFDI()
+        {
+            string DatosResultado;
+            
+            DataSerieCFDI dataSerie = new DataSerieCFDI();
+            try
+            {
+                BDH.HerramientaSAT herramientaSAT = new BDH.HerramientaSAT();
+                DatosResultado = herramientaSAT.LeerTabla("/api/v1/series");
+                dataSerie = JsonConvert.DeserializeObject<DataSerieCFDI>(DatosResultado);
+                BoxSeriesCfdi.ItemsSource = dataSerie.data;
+            }
+            catch (Exception ex)
+            {
 
-
-
+                MessageBox.Show(ex.Message);
+            }
+            
         }
         private void CalcularImporte()
         {
@@ -73,7 +95,7 @@ namespace FacturacionCFDI.Facturas
                     foreach (ConceptosFacturasModel conceptoLocal in ListaConceptosLocal)
                     {
                         importe = conceptoLocal.Cantidad * conceptoLocal.ValorUnitario;
-                        conceptoLocal.Importe = importe;
+                        //conceptoLocal.Importe = importe;
                         DatosTotales.Subtotal = DatosTotales.Subtotal + importe;
                     }
                     GridConceptos.ItemsSource = ListaConceptosLocal;
@@ -118,12 +140,16 @@ namespace FacturacionCFDI.Facturas
         private void BtnFacturar_Click(object sender, RoutedEventArgs e)
         {
             BDH.HerramientaSAT herramientaSAT = new BDH.HerramientaSAT();
+            btnFacturar.IsEnabled = false;
             try
             {
                 string DatosString = string.Empty;
+                int IdSerie = 0;
+                int.TryParse(txtIDSerie.Text, out IdSerie);
+                string DatosResultado = string.Empty;
                 DatosTimbradoModel datosTimbrado = new DatosTimbradoModel()
                 {
-                    conceptos = CalcularImpuestos(),
+                    Conceptos = CalcularImpuestos(),
                     CondicionesDePago = "Pago en una sola exhibición",
                     EnviarCorreo = false,
                     FormaPago = "01",
@@ -132,10 +158,10 @@ namespace FacturacionCFDI.Facturas
                     Moneda = "MXN",
                     Receptor = new ReceptorModel()
                     {
-                        UID = ""
+                        UID = txtUIDCliente.Text
                     },
-                    Redondeo = 2,
-                    Serie = "1",
+                    Redondeo = "2",
+                    Serie = IdSerie,
                     TipoDocumento = "factura",
                     UsoCFDI = "P01"
 
@@ -143,14 +169,27 @@ namespace FacturacionCFDI.Facturas
 
 
                 DatosString = JsonConvert.SerializeObject(datosTimbrado);
-                herramientaSAT.LeerTablaPOST("create", DatosString);
-
+                
+                DatosResultado = herramientaSAT.LeerTablaPOST("api/v3/cfdi33/create", DatosString);
+                Facturas.FacturaTimbradoModel facturaTimbradoSAT = JsonConvert.DeserializeObject<FacturaTimbradoModel>(DatosResultado);
+                if (facturaTimbradoSAT == null)
+                {
+                    throw new Exception("No se pudo realizar el timbrado!, intente de nuevo");
+                }
+                if (facturaTimbradoSAT.UUID == null || String.IsNullOrEmpty(facturaTimbradoSAT.UUID))
+                {
+                    throw new Exception("No se pudo realizar el timbrado! UUID Vacio, intente de nuevo");
+                }
+                lblUuidSAT.Content = facturaTimbradoSAT.UUID;
+                lblEstadoFacturado.Content = "Facturado";
+                btnFacturar.Visibility = Visibility.Collapsed;
+                btnFacturar.IsEnabled = false;
 
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
-                throw;
+                MessageBox.Show(ex.Message, "problema", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+                btnFacturar.IsEnabled = true;
             }
         }
         private List<ConceptosFacturasModel> CalcularImpuestos()
@@ -173,12 +212,18 @@ namespace FacturacionCFDI.Facturas
                 foreach (ConceptosFacturasModel conceptoLocal in ListaConceptosLocal)
                 {
                     conceptoLocal.Impuestos = new ImpuestosTrasladosModel();
-                    conceptoLocal.Impuestos.Traslados = new TrasladosModel();
-                    conceptoLocal.Impuestos.Traslados.Base = conceptoLocal.Importe;
-                    conceptoLocal.Impuestos.Traslados.Impuesto = "002";
-                    conceptoLocal.Impuestos.Traslados.TipoFactor = "Tasa";
-                    conceptoLocal.Impuestos.Traslados.TasaOCuota = IvaValor.IvaTasa;
-                    conceptoLocal.Impuestos.Traslados.Importe = conceptoLocal.Importe * IvaValor.IvaTasa;
+                    conceptoLocal.Impuestos.Traslados = new List<TrasladosModel>();
+                    //conceptoLocal.Impuestos.Traslados.Base = conceptoLocal.Importe;
+                    conceptoLocal.Impuestos.Traslados.Add(new TrasladosModel()
+                    {
+                        Base = conceptoLocal.ValorUnitario.ToString("0.00"),
+                        Impuesto = "002",
+                        TipoFactor = "Tasa",
+                        TasaOCuota = IvaValor.IvaTasa.ToString("0.00"),
+                        //conceptoLocal.Impuestos.Traslados.Importe = conceptoLocal.Importe * IvaValor.IvaTasa;
+                        Importe = (conceptoLocal.ValorUnitario * IvaValor.IvaTasa).ToString("0.00")
+                    });
+                    
                 }
             }
             catch (Exception ex)

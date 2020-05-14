@@ -7,7 +7,7 @@ namespace FacturacionCFDI.Facturas
 {
     public class ImpuestosTrasladosModel
     {
-        public TrasladosModel Traslados { get; set; }
+        public List< TrasladosModel> Traslados { get; set; }
     
     }
 

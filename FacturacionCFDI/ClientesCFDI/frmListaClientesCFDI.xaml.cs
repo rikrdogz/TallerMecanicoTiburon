@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,25 @@ namespace FacturacionCFDI.ClientesCFDI
         public frmListaClientesCFDI()
         {
             InitializeComponent();
+        }
+
+        private void BtnObtenerClientes_Click(object sender, RoutedEventArgs e)
+        {
+            Modelo.DataClienteModel dataCliente = new Modelo.DataClienteModel();
+            List<Modelo.ClienteCFDIModel> ListaclienteCFDIs = new List<Modelo.ClienteCFDIModel>();
+            try
+            {
+                string DatosRecibido;
+                BDH.HerramientaSAT herramientaSAT = new BDH.HerramientaSAT();
+                 DatosRecibido = herramientaSAT.LeerTabla("api/v1/clients");
+                dataCliente = JsonConvert.DeserializeObject<Modelo.DataClienteModel>(DatosRecibido);
+                BoxClientes.ItemsSource = dataCliente.data;
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message,"problema", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+            }
         }
     }
 }

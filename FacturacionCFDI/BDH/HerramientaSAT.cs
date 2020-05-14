@@ -10,7 +10,8 @@ namespace FacturacionCFDI.BDH
 {
     class HerramientaSAT
     {
-        public static string ServidorApiSAT = "http://devfactura.in/api/v3/cfdi33/";
+        public static string ServidorApiSAT = "http://devfactura.in/";
+        //v3/cfdi33/
         public static string FPLUGIN = "9d4095c8f7ed5785cb14c0e3b033eeb8252416ed";
         public static string FApiKey = "JDJ5JDEwJDkvM21jRTlEdXJkY2pGRmJMdVlCQ2V1MWJxendHMnR2QXhWdE5IOXZlOVN6WEV2enY3Smxp";
         public static string FSecretKey = "JDJ5JDEwJG1jMUduQWdNMzcuLnRLTGU2L1Bjb2VXMS5WUnVuOXouei9ydjlxSktyUjVQSjMuS2puTmxD";

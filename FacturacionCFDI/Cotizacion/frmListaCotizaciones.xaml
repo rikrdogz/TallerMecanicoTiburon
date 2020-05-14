@@ -24,6 +24,7 @@
             <StackPanel Grid.Row="1" Margin="10" Height="60" Orientation="Horizontal">
                 <Button x:Name="btnObtenerFacturas" Background="MediumBlue" Foreground="White" Padding="5" Click="BtnObtenerFacturas_Click">Obtener Cotizaciones</Button>
                 <Label x:Name="lbltiempo" Content="Tiempo:"/>
+                <Button x:Name="btnVerClientes" Content="Ver Clientes"  Click="BtnVerClientes_Click"/>
             </StackPanel>
             <StackPanel Grid.Row="2" Margin="5"  Height="50" Orientation="Horizontal">
                 <StackPanel Orientation="Horizontal" >

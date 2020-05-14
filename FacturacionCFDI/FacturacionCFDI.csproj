@@ -109,6 +109,7 @@
     <Compile Include="Facturas\ConceptosCFDIModel.cs" />
     <Compile Include="Facturas\ConceptosFacturasModel.cs" />
     <Compile Include="Facturas\DatosTimbradoModel.cs" />
+    <Compile Include="Facturas\FacturaTimbradoModel.cs" />
     <Compile Include="Facturas\FormaPagoModel.cs" />
     <Compile Include="Facturas\frmFacturarCotizacion.xaml.cs">
       <DependentUpon>frmFacturarCotizacion.xaml</DependentUpon>
@@ -116,6 +117,7 @@
     <Compile Include="Facturas\ImpuestosModel.cs" />
     <Compile Include="Facturas\ImpuestosTrasladosModel.cs" />
     <Compile Include="Facturas\IvaValoresModel.cs" />
+    <Compile Include="Facturas\SerieCFDIModel.cs" />
     <Compile Include="Facturas\TotalModel.cs" />
     <Compile Include="Facturas\TrasladosModel.cs" />
     <Compile Include="ListaFacturas.xaml.cs">
@@ -128,6 +130,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Modelo\CamionModel.cs" />
+    <Compile Include="Modelo\ClienteCFDIModel.cs" />
     <Compile Include="Modelo\CotizacionDetalleModel.cs" />
     <Compile Include="Modelo\CotizacionModel.cs" />
     <Compile Include="Modelo\FacturaModel.cs" />

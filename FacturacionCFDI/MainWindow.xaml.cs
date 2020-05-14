@@ -23,7 +23,7 @@ namespace FacturacionCFDI
         {
             InitializeComponent();
             lblServerSAT.Content = BDH.HerramientaSAT.ServidorApiSAT;
-            if (BDH.HerramientaSAT.ServidorApiSAT == "http://devfactura.in/api/v3/cfdi33/")
+            if (BDH.HerramientaSAT.ServidorApiSAT == "http://devfactura.in/")
             {
                 
                 this.Background = Brushes.Yellow;

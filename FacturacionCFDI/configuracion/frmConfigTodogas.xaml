@@ -1,0 +1,177 @@
+﻿<Page x:Class="FacturacionCFDI.configuracion.frmConfigTodogas"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:FacturacionCFDI.configuracion"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      Background="AntiqueWhite"
+      TextElement.FontSize="18"
+      Title="frmConfigTodogas">
+    <Page.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <!-- you only need bring this resource in if you want to specify the circular style statically -->
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.ProgressBar.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Page.Resources>
+    <Grid>
+        <Grid Margin="10">
+            <Grid.RowDefinitions>
+                <RowDefinition  Height="auto"/>
+                <RowDefinition  Height="auto" MinHeight="150" MaxHeight="450"/>
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <StackPanel x:Name="StackInforCargada" Visibility="Collapsed" Orientation="Horizontal">
+                <Label Content="Configuración Termogas | TodoGas" />
+                <Button x:Name="btnGuardarConfig" Content="Guardar" Margin="10,0,0,0" Click="BtnGuardarConfig_Click" />
+            </StackPanel>
+            <StackPanel x:Name="StackCargandoInfo" Visibility="Visible" Orientation="Horizontal">
+                <Label Content="Cargando información" FontSize="24" FontWeight="Bold" />
+                <ProgressBar Style="{StaticResource MaterialDesignCircularProgressBar}" IsIndeterminate="True"
+                             x:Name="DeterminateCircularProgress"/>
+            </StackPanel>
+            
+            <Grid Grid.Row="1" Background="White" Margin="10">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="auto" MinWidth="50"/>
+                    <ColumnDefinition Width="auto" MinWidth="50"/>
+                    <ColumnDefinition Width="auto" MinWidth="50"/>
+                </Grid.ColumnDefinitions>
+                
+                <Grid x:Name="GridClientes" >
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Label Content="IdCliente" VerticalAlignment="Center" />
+                    <TextBox x:Name="txtUIDCliente" IsReadOnly="True" 
+                             Grid.Column="1"
+                             Background="White" VerticalAlignment="Center" 
+                             MinWidth="50" Margin="1,0,10,0" />
+                    <Label Content="RFC" Grid.Row="1"/>
+                    <Label x:Name="lblRFC" Content="RFC" Grid.Row="1" Grid.Column="1"/>
+                    <Label Content="RAZON SOCIAL" Grid.Row="2"/>
+                    <Label x:Name="lblRazonSocial" Content="RAZON SOCIAL" Grid.Row="2" Grid.Column="1"/>
+                </Grid>
+                <Button x:Name="btnCambiarCliente" 
+                        Content="Cambiar" Grid.Column="1" Click="BtnCambiarCliente_Click" />
+                
+                <StackPanel x:Name="StackCambiarCliente" Grid.Column="2" Orientation="Horizontal">
+                    
+                    <ListBox x:Name="BoxClientes" Visibility="Collapsed" MinWidth="100"  Background="WhiteSmoke" SelectionChanged="BoxClientes_SelectionChanged">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <Grid >
+                                    
+                                    <RadioButton x:Name="RadioUIDCliente" 
+                                                 GroupName="GrupoUID" 
+                                                 
+                                                 Click="RadioUIDCliente_Click" >
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition/>
+                                                <ColumnDefinition/>
+                                                <ColumnDefinition/>
+                                            </Grid.ColumnDefinitions>
+                                            <Label Content="{Binding UID}" />
+                                            <Label Grid.Column="1" Content="{Binding RazonSocial}"/>
+                                            <Label Grid.Column="2" Content="{Binding RFC}"/>
+                                        </Grid>
+                                    </RadioButton>
+                                    
+                                </Grid>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+                    
+                </StackPanel>
+            </Grid>
+            <Grid Grid.Row="2"  Background="White" Margin="10">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="auto" MinWidth="50"/>
+                    <ColumnDefinition Width="auto" MinWidth="50"/>
+                    <ColumnDefinition Width="auto" MinWidth="50"/>
+                </Grid.ColumnDefinitions>
+                <Grid x:Name="GridSerie" Margin="10" Grid.Row="2" >
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        
+                    </Grid.RowDefinitions>
+                    <Label Content="ID Folio" VerticalAlignment="Center" />
+                    <TextBox x:Name="txtFolioID"  IsReadOnly="True" 
+                             Grid.Column="1"
+                             Background="White" VerticalAlignment="Center" 
+                             MinWidth="50" Margin="1,0,10,0" />
+                    <Label Content="Serie" Grid.Row="1"/>
+                    <Label x:Name="lblSerieNombre"  Content="-- Serie --" Grid.Row="1" Grid.Column="1"/>
+                    
+                </Grid>
+                <Button x:Name="btnCambiarSerie"
+                        Content="Cambiar Serie" Grid.Column="1" Click="BtnCambiarSerie_Click" />
+
+                <StackPanel x:Name="StackSeries" Background="WhiteSmoke"  Grid.Column="2" Orientation="Horizontal">
+
+                    <ListBox x:Name="BoxSeries" Visibility="Collapsed" MinWidth="100" MaxHeight="90" Background="WhiteSmoke" >
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <Grid >
+
+                                    <RadioButton x:Name="RadioSerie" 
+                                                 GroupName="GrupoSerie" 
+                                                 
+                                                 Click="RadioSerie_Click" >
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition/>
+                                                <ColumnDefinition/>
+                                                <ColumnDefinition/>
+                                            </Grid.ColumnDefinitions>
+                                            <Label Content="{Binding SerieID}"/>
+                                            <Label Grid.Column="1" Content="{Binding SerieName}"/>
+                                            <Label Grid.Column="2" Content="{Binding SerieType}"/>
+                                        </Grid>
+                                    </RadioButton>
+
+                                </Grid>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+
+                </StackPanel>
+            </Grid>
+            <Grid Grid.Row="3" Background="White" Margin="10">
+                <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                    <Label Content="IVA"/>
+                    <ComboBox x:Name="BoxIva" MinWidth="200" SelectedValuePath="valor_iva">
+                        <ComboBox.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel>
+                                    <Label Foreground="Black" Content="{Binding valor_iva}" />
+                                </StackPanel>
+
+                            </DataTemplate>
+                        </ComboBox.ItemTemplate>
+                    </ComboBox>
+                </StackPanel>
+            </Grid>
+        </Grid>
+    </Grid>
+</Page>

@@ -12,16 +12,15 @@ namespace FacturacionCFDI.BDH
     {
         public static string ServidorAPIDB = "http://192.168.56.1/laraveltiburon/blog/public/api/";
         //public static string ServidorAPIDB = "http://vidachiapas.com/api/";
-        public static WebRequest respuesta;
+        
         public string LeerTabla(string consulta)
         {
-
-            //WebRequest respuesta;
-            string ResultadoConsulta = string.Empty;
+             WebRequest respuesta;
+        string ResultadoConsulta = string.Empty;
             respuesta = WebRequest.Create(ServidorAPIDB + consulta);
             respuesta.ContentType = "application/json";
             
-            //respuesta.Method = "GET";
+            respuesta.Method = "GET";
             respuesta.Proxy = null;
             using (WebResponse response = respuesta.GetResponse())
             {
@@ -39,16 +38,16 @@ namespace FacturacionCFDI.BDH
         public string LeerTablaPOST(string consulta, string DataArray)
         {
 
-            //WebRequest respuesta;
+            WebRequest respuesta;
             string ResultadoConsulta = string.Empty;
             respuesta = WebRequest.Create(ServidorAPIDB + consulta);
-            respuesta.ContentType = "application/json";
+            respuesta.ContentType = "application/json;";
+            
             //respuesta.ContentType = DataArray;
             respuesta.Method = "POST";
             respuesta.Proxy = null;
             using (var streamWriter = new StreamWriter(respuesta.GetRequestStream()))
             {
-
                 streamWriter.Write(DataArray);
             }
             using (WebResponse response = respuesta.GetResponse())
@@ -56,6 +55,7 @@ namespace FacturacionCFDI.BDH
                 using (Stream stream = response.GetResponseStream())
                 {
                     StreamReader reader = new StreamReader(stream);
+                   
                     var json = reader.ReadToEnd();
                     ResultadoConsulta = json;
 
@@ -67,7 +67,7 @@ namespace FacturacionCFDI.BDH
 
         public string  RevisarTiemposAPI(string consulta)
         {
-            
+            WebRequest respuesta;
             string ResultadoConsulta = string.Empty;
             
             respuesta = WebRequest.Create(ServidorAPIDB + consulta);

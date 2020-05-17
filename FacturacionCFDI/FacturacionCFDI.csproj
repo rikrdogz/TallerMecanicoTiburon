@@ -75,6 +75,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="configuracion\frmConfigTodogas.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Cotizacion\frmListaCotizaciones.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -103,6 +107,9 @@
     <Compile Include="ClientesCFDI\frmListaClientesCFDI.xaml.cs">
       <DependentUpon>frmListaClientesCFDI.xaml</DependentUpon>
     </Compile>
+    <Compile Include="configuracion\frmConfigTodogas.xaml.cs">
+      <DependentUpon>frmConfigTodogas.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Cotizacion\frmListaCotizaciones.xaml.cs">
       <DependentUpon>frmListaCotizaciones.xaml</DependentUpon>
     </Compile>
@@ -130,6 +137,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Modelo\CamionModel.cs" />
+    <Compile Include="Modelo\CfdiIvaModel.cs" />
     <Compile Include="Modelo\ClienteCFDIModel.cs" />
     <Compile Include="Modelo\CotizacionDetalleModel.cs" />
     <Compile Include="Modelo\CotizacionModel.cs" />

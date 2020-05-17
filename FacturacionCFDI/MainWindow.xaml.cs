@@ -49,5 +49,10 @@ namespace FacturacionCFDI
         {
             _MainFrame.Navigate(new camiones.frmListaCamiones());
         }
+
+        private void BtnIrAConfigGAS_Click(object sender, RoutedEventArgs e)
+        {
+            _MainFrame.Navigate(new configuracion.frmConfigTodogas());
+        }
     }
 }

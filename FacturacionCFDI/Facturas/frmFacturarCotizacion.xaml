@@ -40,7 +40,7 @@
                 </StackPanel>
                 <StackPanel>
                     <Button x:Name="btnFacturar" Content="Facturar" Click="BtnFacturar_Click"   />
-                    <ListBox x:Name="BoxSeriesCfdi" MaxHeight="100">
+                    <ListBox x:Name="BoxSeriesCfdi" MaxHeight="100" >
                         <ListBox.ItemTemplate>
                             <DataTemplate>
                                 <StackPanel Orientation="Horizontal">

@@ -232,5 +232,10 @@ namespace FacturacionCFDI.Facturas
             }
             return ListaConceptosLocal;
         }
+
+        private void BoxSeriesCfdi_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
     }
 }

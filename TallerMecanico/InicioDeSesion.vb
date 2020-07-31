@@ -304,11 +304,16 @@ Public Class InicioDeSesion
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-        respaldar("inicio")
+
     End Sub
 
     Private Sub LinkActualizarSistema_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles LinkActualizarSistema.LinkClicked
-        Process.Start(Application.StartupPath & "\ActualizadorSistema.exe")
+        Try
+            Process.Start(Application.StartupPath & "\ActualizadorSistema.exe")
+        Catch ex As Exception
+            MsgBox(ex.Message, MsgBoxStyle.Exclamation)
+        End Try
+
 
     End Sub
 End Class

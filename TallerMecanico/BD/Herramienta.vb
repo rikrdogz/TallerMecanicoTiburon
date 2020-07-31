@@ -1,9 +1,16 @@
-﻿Imports MySql.Data.MySqlClient
+﻿Imports System.Text.RegularExpressions
+Imports MySql.Data.MySqlClient
 Public Class Herramienta
     Private conexion As MySqlConnection
     Private comando As New MySqlCommand
     Private LectorDatos As MySqlDataReader
+    Public Function EsCorreoValido(ByVal s As String) As Boolean
+        If Regex.IsMatch(s, "^([0-9a-zA-Z]([-\.\w]*[0-9a-zA-Z])*@([0-9a-zA-Z][-\w]*[0-9a-zA-Z]\.)+[a-zA-Z]{2,9})$") Then
+            Return True
+        End If
+        Throw New Exception("No es un correo valido")
 
+    End Function
     Public Function ObtenerTabla(consulta As String) As DataTable
 
         Dim tablaDatos As New DataTable

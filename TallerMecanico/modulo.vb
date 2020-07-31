@@ -5,7 +5,7 @@ Module modulo
     Public con As MySqlConnection
     Public cmd As New MySqlCommand
     Public datos As MySqlDataReader
-    Public respaldo_info As New MySqlBackup
+
 
     Public M_server As String = ""
     Public M_user As String = ""
@@ -192,48 +192,6 @@ Module modulo
         cmd.CommandText = "INSERT INTO articulos_movimiento (ventana,folio,id_det,id_np,np,tipo_mov,tipo_art,cant,fecha,descripcion,existencia,saldo,id_proveedor,proveedor,cant_unidad,motivo) VALUES (" & valores & ")"
         cmd.ExecuteNonQuery()
 
-
-    End Sub
-    Public Sub respaldar(tipo As String)
-
-        Dim nombre As String = "respaldo"
-        Dim suma As Integer = 0
-        con = New MySqlConnection
-
-        sentencia = "Persist Security Info=True;server=" & M_server & "; user=" & M_user & "; password=" & M_pass & "; database=" & M_data & "; Port=3306;Connect Timeout=100000000;Convert Zero Datetime=True"
-        con.ConnectionString = sentencia
-        con.Open()
-
-        cmd.Connection = con
-
-
-        Try
-            Dim archivos As New DirectoryInfo(carpeta)
-
-            For Each file_sql As FileInfo In archivos.GetFiles
-                If file_sql.Extension.Equals(".sql") Then
-                    suma += 1
-                Else
-                    MsgBox("no hay sql")
-                End If
-
-
-            Next
-        Catch ex As Exception
-            MsgBox(ex.Message)
-        End Try
-        suma += 1
-        Try
-            Dim file As String = Application.StartupPath & "\respaldos\" & nombre & "N" & suma & "_" & DateTime.Today.Day & "-" & DateTime.Today.ToString("MMMM") & "_" & tipo & ".sql"
-            Dim mb As MySqlBackup = New MySqlBackup(cmd)
-            mb.ExportToFile(file)
-            MsgBox("Base de datos respaldado, Numero de respaldo # " & suma)
-        Catch ex As Exception
-            MsgBox(ex.Message, MsgBoxStyle.Information)
-        End Try
-
-
-        con.Close()
 
     End Sub
 

@@ -67,16 +67,17 @@ Partial Class MDIPrincipal
         Me.Panel7 = New System.Windows.Forms.Panel()
         Me.Button3 = New System.Windows.Forms.Button()
         Me.TabConfigurar = New System.Windows.Forms.TabPage()
+        Me.btnCorreoTG = New System.Windows.Forms.Button()
         Me.btnUsuarios = New System.Windows.Forms.Button()
         Me.btnConfigIVA = New System.Windows.Forms.Button()
+        Me.TabCFDI = New System.Windows.Forms.TabPage()
+        Me.btnCfdiListaFacturas = New System.Windows.Forms.Button()
         Me.Panel3 = New System.Windows.Forms.Panel()
         Me.lblidUser = New System.Windows.Forms.Label()
         Me.btnCerrarSesion = New System.Windows.Forms.Button()
         Me.lblUser = New System.Windows.Forms.Label()
         Me.lblestado = New System.Windows.Forms.Label()
         Me.tiempo = New System.Windows.Forms.Timer(Me.components)
-        Me.TabCFDI = New System.Windows.Forms.TabPage()
-        Me.btnCfdiListaFacturas = New System.Windows.Forms.Button()
         Me.Panel1.SuspendLayout()
         Me.TabPage.SuspendLayout()
         Me.tabFacturas.SuspendLayout()
@@ -99,8 +100,8 @@ Partial Class MDIPrincipal
         Me.Panel13.SuspendLayout()
         Me.Panel7.SuspendLayout()
         Me.TabConfigurar.SuspendLayout()
-        Me.Panel3.SuspendLayout()
         Me.TabCFDI.SuspendLayout()
+        Me.Panel3.SuspendLayout()
         Me.SuspendLayout()
         '
         'ImageList1
@@ -778,6 +779,7 @@ Partial Class MDIPrincipal
         '
         'TabConfigurar
         '
+        Me.TabConfigurar.Controls.Add(Me.btnCorreoTG)
         Me.TabConfigurar.Controls.Add(Me.btnUsuarios)
         Me.TabConfigurar.Controls.Add(Me.btnConfigIVA)
         Me.TabConfigurar.Location = New System.Drawing.Point(4, 36)
@@ -787,6 +789,15 @@ Partial Class MDIPrincipal
         Me.TabConfigurar.TabIndex = 4
         Me.TabConfigurar.Text = "Configuraciones"
         Me.TabConfigurar.UseVisualStyleBackColor = True
+        '
+        'btnCorreoTG
+        '
+        Me.btnCorreoTG.Location = New System.Drawing.Point(266, 19)
+        Me.btnCorreoTG.Name = "btnCorreoTG"
+        Me.btnCorreoTG.Size = New System.Drawing.Size(115, 45)
+        Me.btnCorreoTG.TabIndex = 2
+        Me.btnCorreoTG.Text = "Correos TG"
+        Me.btnCorreoTG.UseVisualStyleBackColor = True
         '
         'btnUsuarios
         '
@@ -805,6 +816,28 @@ Partial Class MDIPrincipal
         Me.btnConfigIVA.TabIndex = 0
         Me.btnConfigIVA.Text = "Valores IVA"
         Me.btnConfigIVA.UseVisualStyleBackColor = True
+        '
+        'TabCFDI
+        '
+        Me.TabCFDI.Controls.Add(Me.btnCfdiListaFacturas)
+        Me.TabCFDI.Location = New System.Drawing.Point(4, 36)
+        Me.TabCFDI.Name = "TabCFDI"
+        Me.TabCFDI.Padding = New System.Windows.Forms.Padding(3)
+        Me.TabCFDI.Size = New System.Drawing.Size(1173, 73)
+        Me.TabCFDI.TabIndex = 5
+        Me.TabCFDI.Text = "CFDI Facturas"
+        Me.TabCFDI.UseVisualStyleBackColor = True
+        '
+        'btnCfdiListaFacturas
+        '
+        Me.btnCfdiListaFacturas.Location = New System.Drawing.Point(16, 6)
+        Me.btnCfdiListaFacturas.Name = "btnCfdiListaFacturas"
+        Me.btnCfdiListaFacturas.Size = New System.Drawing.Size(121, 61)
+        Me.btnCfdiListaFacturas.TabIndex = 0
+        Me.btnCfdiListaFacturas.Text = "Lista de Facturas"
+        Me.btnCfdiListaFacturas.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.btnCfdiListaFacturas.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
+        Me.btnCfdiListaFacturas.UseVisualStyleBackColor = True
         '
         'Panel3
         '
@@ -871,28 +904,6 @@ Partial Class MDIPrincipal
         '
         Me.tiempo.Interval = 400
         '
-        'TabCFDI
-        '
-        Me.TabCFDI.Controls.Add(Me.btnCfdiListaFacturas)
-        Me.TabCFDI.Location = New System.Drawing.Point(4, 36)
-        Me.TabCFDI.Name = "TabCFDI"
-        Me.TabCFDI.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabCFDI.Size = New System.Drawing.Size(1173, 73)
-        Me.TabCFDI.TabIndex = 5
-        Me.TabCFDI.Text = "CFDI Facturas"
-        Me.TabCFDI.UseVisualStyleBackColor = True
-        '
-        'btnCfdiListaFacturas
-        '
-        Me.btnCfdiListaFacturas.Location = New System.Drawing.Point(16, 6)
-        Me.btnCfdiListaFacturas.Name = "btnCfdiListaFacturas"
-        Me.btnCfdiListaFacturas.Size = New System.Drawing.Size(121, 61)
-        Me.btnCfdiListaFacturas.TabIndex = 0
-        Me.btnCfdiListaFacturas.Text = "Lista de Facturas"
-        Me.btnCfdiListaFacturas.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.btnCfdiListaFacturas.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
-        Me.btnCfdiListaFacturas.UseVisualStyleBackColor = True
-        '
         'MDIPrincipal
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -929,9 +940,9 @@ Partial Class MDIPrincipal
         Me.Panel13.ResumeLayout(False)
         Me.Panel7.ResumeLayout(False)
         Me.TabConfigurar.ResumeLayout(False)
+        Me.TabCFDI.ResumeLayout(False)
         Me.Panel3.ResumeLayout(False)
         Me.Panel3.PerformLayout()
-        Me.TabCFDI.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub
@@ -988,5 +999,5 @@ Partial Class MDIPrincipal
     Friend WithEvents btnUsuarios As System.Windows.Forms.Button
     Friend WithEvents TabCFDI As System.Windows.Forms.TabPage
     Friend WithEvents btnCfdiListaFacturas As System.Windows.Forms.Button
-
+    Friend WithEvents btnCorreoTG As Button
 End Class

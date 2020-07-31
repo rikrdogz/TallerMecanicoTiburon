@@ -29,6 +29,8 @@ Partial Class frmEnviarCotizacion
         Me.lblCorreo = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.ListCorreosCopia = New System.Windows.Forms.ListBox()
+        Me.Label2 = New System.Windows.Forms.Label()
         Me.lblCorreoDe = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.txtAsunto = New System.Windows.Forms.TextBox()
@@ -93,7 +95,7 @@ Partial Class frmEnviarCotizacion
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(16, 83)
+        Me.Label5.Location = New System.Drawing.Point(16, 169)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(69, 24)
         Me.Label5.TabIndex = 4
@@ -104,6 +106,8 @@ Partial Class frmEnviarCotizacion
         Me.Panel2.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Panel2.Controls.Add(Me.ListCorreosCopia)
+        Me.Panel2.Controls.Add(Me.Label2)
         Me.Panel2.Controls.Add(Me.lblCorreoDe)
         Me.Panel2.Controls.Add(Me.Label4)
         Me.Panel2.Controls.Add(Me.txtAsunto)
@@ -114,8 +118,27 @@ Partial Class frmEnviarCotizacion
         Me.Panel2.ForeColor = System.Drawing.Color.DarkSlateGray
         Me.Panel2.Location = New System.Drawing.Point(12, 51)
         Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(640, 252)
+        Me.Panel2.Size = New System.Drawing.Size(640, 277)
         Me.Panel2.TabIndex = 3
+        '
+        'ListCorreosCopia
+        '
+        Me.ListCorreosCopia.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.ListCorreosCopia.FormattingEnabled = True
+        Me.ListCorreosCopia.ItemHeight = 24
+        Me.ListCorreosCopia.Location = New System.Drawing.Point(81, 80)
+        Me.ListCorreosCopia.Name = "ListCorreosCopia"
+        Me.ListCorreosCopia.Size = New System.Drawing.Size(534, 74)
+        Me.ListCorreosCopia.TabIndex = 12
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Location = New System.Drawing.Point(16, 81)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(41, 24)
+        Me.Label2.TabIndex = 11
+        Me.Label2.Text = "CC:"
         '
         'lblCorreoDe
         '
@@ -142,10 +165,10 @@ Partial Class frmEnviarCotizacion
         Me.txtAsunto.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.txtAsunto.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtAsunto.ForeColor = System.Drawing.Color.DarkSlateGray
-        Me.txtAsunto.Location = New System.Drawing.Point(91, 80)
+        Me.txtAsunto.Location = New System.Drawing.Point(84, 157)
         Me.txtAsunto.Multiline = True
         Me.txtAsunto.Name = "txtAsunto"
-        Me.txtAsunto.Size = New System.Drawing.Size(524, 46)
+        Me.txtAsunto.Size = New System.Drawing.Size(541, 40)
         Me.txtAsunto.TabIndex = 8
         Me.txtAsunto.TabStop = False
         '
@@ -155,7 +178,7 @@ Partial Class frmEnviarCotizacion
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.txtCuerpoCorreo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.txtCuerpoCorreo.ForeColor = System.Drawing.Color.DarkSlateGray
-        Me.txtCuerpoCorreo.Location = New System.Drawing.Point(19, 132)
+        Me.txtCuerpoCorreo.Location = New System.Drawing.Point(19, 198)
         Me.txtCuerpoCorreo.Multiline = True
         Me.txtCuerpoCorreo.Name = "txtCuerpoCorreo"
         Me.txtCuerpoCorreo.Size = New System.Drawing.Size(606, 72)
@@ -165,10 +188,11 @@ Partial Class frmEnviarCotizacion
         '
         'btnCerrar
         '
+        Me.btnCerrar.Anchor = System.Windows.Forms.AnchorStyles.Bottom
         Me.btnCerrar.BackColor = System.Drawing.Color.White
         Me.btnCerrar.Image = Global.TallerMecanico.My.Resources.Resources.close_window_32
         Me.btnCerrar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnCerrar.Location = New System.Drawing.Point(12, 309)
+        Me.btnCerrar.Location = New System.Drawing.Point(12, 334)
         Me.btnCerrar.Name = "btnCerrar"
         Me.btnCerrar.Size = New System.Drawing.Size(139, 38)
         Me.btnCerrar.TabIndex = 5
@@ -177,11 +201,11 @@ Partial Class frmEnviarCotizacion
         '
         'btnEnviar
         '
-        Me.btnEnviar.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnEnviar.Anchor = System.Windows.Forms.AnchorStyles.Bottom
         Me.btnEnviar.BackColor = System.Drawing.Color.White
         Me.btnEnviar.Image = Global.TallerMecanico.My.Resources.Resources.send_32
         Me.btnEnviar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnEnviar.Location = New System.Drawing.Point(513, 309)
+        Me.btnEnviar.Location = New System.Drawing.Point(513, 334)
         Me.btnEnviar.Name = "btnEnviar"
         Me.btnEnviar.Size = New System.Drawing.Size(139, 38)
         Me.btnEnviar.TabIndex = 10
@@ -193,7 +217,7 @@ Partial Class frmEnviarCotizacion
         Me.AutoScaleDimensions = New System.Drawing.SizeF(11.0!, 24.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
-        Me.ClientSize = New System.Drawing.Size(664, 359)
+        Me.ClientSize = New System.Drawing.Size(664, 384)
         Me.Controls.Add(Me.btnCerrar)
         Me.Controls.Add(Me.btnEnviar)
         Me.Controls.Add(Me.Panel2)
@@ -223,4 +247,6 @@ Partial Class frmEnviarCotizacion
     Friend WithEvents txtAsunto As System.Windows.Forms.TextBox
     Friend WithEvents lblCorreoDe As System.Windows.Forms.Label
     Friend WithEvents Label4 As System.Windows.Forms.Label
+    Friend WithEvents ListCorreosCopia As ListBox
+    Friend WithEvents Label2 As Label
 End Class

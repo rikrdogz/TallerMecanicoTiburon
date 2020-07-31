@@ -126,6 +126,12 @@
     <Compile Include="configuraciones\frmConfig.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="configuraciones\frmConfigCorreos.Designer.vb">
+      <DependentUpon>frmConfigCorreos.vb</DependentUpon>
+    </Compile>
+    <Compile Include="configuraciones\frmConfigCorreos.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="cotizaciones\frmCotizacionNuevoEditar.Designer.vb">
       <DependentUpon>frmCotizacionNuevoEditar.vb</DependentUpon>
     </Compile>
@@ -513,6 +519,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="configuraciones\frmConfig.resx">
       <DependentUpon>frmConfig.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="configuraciones\frmConfigCorreos.resx">
+      <DependentUpon>frmConfigCorreos.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="cotizaciones\frmCotizacionNuevoEditar.resx">
       <DependentUpon>frmCotizacionNuevoEditar.vb</DependentUpon>

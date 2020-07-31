@@ -7,7 +7,7 @@ Public Class frmEnviarCotizacion
     Dim Email As String = ""
     Dim PassWord As String = ""
     Dim CorreoCliente As String = String.Empty
-
+    Dim ListaMailAddressCorreo As New List(Of MailAddress)
     Dim NombreDelCorreo As String = String.Empty
 
     Public Sub New(NumeroCotizacion As Integer, ByVal ATQ As String, ByVal TextoAnterior As String, ByVal RutaAnterior As String)
@@ -37,6 +37,12 @@ Public Class frmEnviarCotizacion
             CuerpoCorreo.From = New MailAddress(Email, NombreDelCorreo)
             CuerpoCorreo.Sender = New MailAddress(Email, NombreDelCorreo)
             CuerpoCorreo.To.Add(CorreoCliente)
+
+            For Each CorreoCopia As MailAddress In ListaMailAddressCorreo
+                CuerpoCorreo.CC.Add(CorreoCopia)
+            Next
+
+
             CuerpoCorreo.Subject = txtAsunto.Text
             CuerpoCorreo.Body = txtCuerpoCorreo.Text
 
@@ -98,7 +104,15 @@ Public Class frmEnviarCotizacion
             lblCorreoDe.Text = Email
             lblCorreo.Text = CorreoCliente
 
-
+            consulta = "SELECT * FROM config_todogas_correos"
+            tablaResultado = tool.ObtenerTabla(consulta)
+            ListaMailAddressCorreo = New List(Of MailAddress)
+            For Each xRow As DataRow In tablaResultado.Rows
+                ListaMailAddressCorreo.Add(New MailAddress(xRow.Item("correo"), xRow.Item("nombre")))
+            Next
+            For Each xRow As DataRow In tablaResultado.Rows
+                ListCorreosCopia.Items.Add(xRow.Item("nombre") & " " & xRow.Item("correo"))
+            Next
         Catch ex As Exception
             MsgBox(ex.Message, MsgBoxStyle.Exclamation, "Problema de onterner información de correo")
         End Try

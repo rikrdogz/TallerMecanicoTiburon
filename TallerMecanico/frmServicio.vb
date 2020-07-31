@@ -179,7 +179,12 @@ Public Class frmServicio
             PanelTituloServicio.Show()
         End If
         With tablaAutos.Rows(IndexServicio)
-            lblTotalServicio.Text = "Servicio: " + FormatCurrency(.Cells("total").Value.ToString)
+            If (.Cells("total")?.Value IsNot Nothing) Then
+                lblTotalServicio.Text = "Servicio: " + FormatCurrency(.Cells("total").Value.ToString)
+            Else
+                lblTotalServicio.Text = "Servicio: " + FormatCurrency("0")
+            End If
+
             btnEdit.Text = "Editar: Servicio " & .Cells("servicio").Value
             lblNumeroServicio.Text = .Cells("servicio").Value.ToString
             lblATQ.Text = .Cells("nuevo").Value.ToString & "  -  " & .Cells("anterior").Value.ToString

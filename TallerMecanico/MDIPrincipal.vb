@@ -355,4 +355,8 @@
         frmListaFacturas.Show()
         frmListaFacturas.WindowState = FormWindowState.Normal
     End Sub
+
+    Private Sub btnCorreoTG_Click(sender As Object, e As EventArgs) Handles btnCorreoTG.Click
+        frmConfigCorreos.ShowDialog()
+    End Sub
 End Class

@@ -96,7 +96,7 @@
 
         End If
         xTiempoBusqueda = 0
-        Me.Cursor = Cursors.AppStarting
+
         TiempoDeEsperaBusqueda.Start()
         tablaCOT.Rows.Clear()
         tablaRenglon.Rows.Clear()
@@ -108,7 +108,7 @@
         cargar_facturas()
     End Sub
 
-    Private Sub btnSinOC_Click(sender As Object, e As EventArgs) Handles btnSinOC.Click
+    Private Sub btnSinOC_Click(sender As Object, e As EventArgs)
 
         Dim tool As New Herramienta
         Dim consulta As String = ""
@@ -130,7 +130,7 @@
             End If
             lblcount.Text = tablaCOT.Rows.Count
             lbltotal.Text = FormatCurrency(suma)
-        Catch ex As Exception        
+        Catch ex As Exception
             MsgBox(ex.Message, MsgBoxStyle.Exclamation)
         End Try
     End Sub
@@ -187,7 +187,7 @@
                             letra = xRow.Item("tipo").ToString.Chars(0)
                             tablaRenglon.Rows.Add(xRow.Item("cantidad"), xRow.Item("np"), xRow.Item("descripcion"), xRow.Item("precio"), letra)
                         Next
-                        
+
                     End If
                 End If
                 If tablaCOT.Rows(i).Cells(ColIdServicio.Name).Value IsNot Nothing AndAlso tablaCOT.Rows(i).Cells(ColIdServicio.Name).Value.ToString.Length > 0 Then
@@ -200,7 +200,7 @@
 
                     End If
                 End If
-                
+
                 lblser.Text = "Servicios COTIZADO " & tablaCOT.Rows(i).Cells("tipo").Value
             Catch ex As Exception
                 MsgBox(ex.Message, MsgBoxStyle.Exclamation)
@@ -274,7 +274,7 @@
             consulta = "SELECT * FROM servicios WHERE numero=" & tablaCOT.Rows(tablaCOT.CurrentRow.Index).Cells("COT").Value
             tablaResultado = tool.ObtenerTabla(consulta)
             If tablaResultado.Rows.Count > 0 Then
-                    With tablaCOT.Rows(tablaCOT.CurrentRow.Index)
+                With tablaCOT.Rows(tablaCOT.CurrentRow.Index)
                     .Cells("OC").Value = tablaResultado.Rows(0).Item("OC")
                     .Cells("FACTURA").Value = tablaResultado.Rows(0).Item("FACTURA")
                     .Cells("METODO").Value = tablaResultado.Rows(0).Item("METODO")
@@ -284,7 +284,7 @@
                     If Not IsDBNull(tablaResultado.Rows(0).Item("fecha_fac")) Then
                         .Cells("fecha_fac").Value = FormatDateTime(tablaResultado.Rows(0).Item("fecha_fac"), DateFormat.ShortDate)
                     End If
-                    End With
+                End With
             End If
         Catch ex As Exception
             MsgBox(ex.Message, MsgBoxStyle.Exclamation, "Detalle actualizar")
@@ -313,7 +313,7 @@
         End If
     End Sub
 
-    Private Sub btnSinFac_Click(sender As Object, e As EventArgs) Handles btnSinFac.Click
+    Private Sub btnSinFac_Click(sender As Object, e As EventArgs)
         Dim suma As Decimal = 0
         Dim filtro As String = "NOREALIZADO,pendiente"
         Dim tool As New Herramienta
@@ -339,7 +339,7 @@
         End Try
     End Sub
 
-    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+    Private Sub Button1_Click(sender As Object, e As EventArgs)
         Dim suma As Decimal = 0
         Dim tool As New Herramienta
         Dim consulta As String = ""
@@ -352,7 +352,7 @@
 
 
         Else
-       
+
             Try
                 If MsgBox("¿Mostrar las Cotizaciones no realizadas?", MsgBoxStyle.YesNo) = MsgBoxResult.Yes Then
                     consulta = "Select * from servicios where numero >1200 AND FACTURA='' order by numero desc"
@@ -501,7 +501,7 @@
 
     Private Sub TiempoDeEsperaBusqueda_Tick(sender As Object, e As EventArgs) Handles TiempoDeEsperaBusqueda.Tick
         xTiempoBusqueda = xTiempoBusqueda + 1
-        If xTiempoBusqueda = 4 Then
+        If xTiempoBusqueda = 5 Then
             Me.Cursor = Cursors.WaitCursor
         End If
         If xTiempoBusqueda = 6 Then
@@ -524,31 +524,51 @@
         Dim tool As New Herramienta
         Dim consulta As String = ""
         Dim tablaResultado As New DataTable
-
+        Dim ListaPorServicios As New DataTable
+        Dim listaIDServicios As New List(Of Integer)
+        Dim textoMarcado As String = ""
         Try
 
-            consulta = "Select * from servicios "
+            consulta = "Select * "
+
+            If (RadServiciosPendientes.Checked) Then
+                textoMarcado = "= 'pendiente'"
+            End If
+
+            If (RadServiciosRealizado.Checked) Then
+                textoMarcado = "<> 'pendiente'"
+            End If
+            If textoMarcado.Length > 0 Then
+                consulta = consulta & ", (SELECT COUNT(servicios_detalle.folio) AS realizado FROM servicios_detalle where MARCADO " & textoMarcado & " and servicios_detalle.folio= servicios.id) AS realizado "
+            Else
+                consulta = consulta & ", 'sin' AS realizado"
+            End If
+
+            consulta = consulta & " FROM servicios "
             consulta = consulta & " WHERE numero >= " & NDesdeCotizacion.Value
-            If CheckSinOc.Checked Then
+            If RadSinOC.Checked Then
                 consulta = consulta & " AND (OC='' OR OC='pendiente'  )"
             End If
-            If CheckConOC.Checked Then
+            If RadConOC.Checked Then
                 consulta = consulta & " AND (OC>0 )"
             End If
-            If CheckConFactura.Checked Then
+            If RadConFactura.Checked Then
                 consulta = consulta & " AND (FACTURA<>'' )"
             End If
-            If CheckSinFactura.Checked Then
+            If RadSinFactura.Checked Then
                 consulta = consulta & " AND (FACTURA='' )"
             End If
-            If CheckConSolC.Checked Then
+            If RadConSC.Checked Then
                 consulta = consulta & " AND (SC>0 )"
             End If
-            If checkSinSolC.Checked Then
+            If RadSinSC.Checked Then
                 consulta = consulta & " AND (SC='' )"
             End If
             If CheckMayorA.Checked Then
                 consulta = consulta & " AND (valor>" & NMayorA.Value & ")"
+            End If
+            If textoMarcado.Length > 0 Then
+                consulta = consulta & " AND (SELECT COUNT(servicios_detalle.folio) AS Realizado FROM servicios_detalle where MARCADO " & textoMarcado & " and servicios_detalle.folio= servicios.id)>0"
             End If
 
 
@@ -582,7 +602,8 @@
 
                     End If
 
-                    tablaCOT.Rows.Add(xRow.Item("numero").ToString, xRow.Item("fecha_cot"), xRow.Item("camion"), Val(xRow.Item("valor")), xRow.Item("OC"), xRow.Item("FACTURA"), xRow.Item("SC"), xRow.Item("PAGADO"), xRow.Item("METODO"), (Val(xRow.Item("valor")) / (1 + (CDbl(xRow.Item("iva").ToString)))), "COT", xRow.Item("para"), xRow.Item("ss"), fechaTexto, xRow.Item("id"))
+                    tablaCOT.Rows.Add(xRow.Item("numero").ToString, xRow.Item("fecha_cot"), xRow.Item("camion"), Val(xRow.Item("valor")), xRow.Item("OC"), xRow.Item("FACTURA"), xRow.Item("SC"), xRow.Item("PAGADO"), xRow.Item("METODO"), (Val(xRow.Item("valor")) / (1 + (CDbl(xRow.Item("iva").ToString)))), "COT", xRow.Item("para"), xRow.Item("ss"), fechaTexto, xRow.Item("id"), xRow.Item("Realizado"))
+
 
                 Next
 

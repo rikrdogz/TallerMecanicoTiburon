@@ -85,6 +85,7 @@ Partial Class frmCotizacion
         Me.Sservicio = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.fecha_fac = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.ColIdServicio = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.colRealizados = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Panel6 = New System.Windows.Forms.Panel()
         Me.lbltotal = New System.Windows.Forms.Label()
         Me.Label8 = New System.Windows.Forms.Label()
@@ -93,9 +94,6 @@ Partial Class frmCotizacion
         Me.Panel3 = New System.Windows.Forms.Panel()
         Me.btnMayor = New System.Windows.Forms.Button()
         Me.btnMenor = New System.Windows.Forms.Button()
-        Me.Button1 = New System.Windows.Forms.Button()
-        Me.btnSinFac = New System.Windows.Forms.Button()
-        Me.btnSinOC = New System.Windows.Forms.Button()
         Me.Panel5 = New System.Windows.Forms.Panel()
         Me.maximo = New System.Windows.Forms.NumericUpDown()
         Me.Label5 = New System.Windows.Forms.Label()
@@ -110,17 +108,24 @@ Partial Class frmCotizacion
         Me.Panel9 = New System.Windows.Forms.Panel()
         Me.btnBusquedaAvanzada = New System.Windows.Forms.Button()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.GroupBox3 = New System.Windows.Forms.GroupBox()
+        Me.RadServiciosTodos = New System.Windows.Forms.RadioButton()
+        Me.RadServiciosPendientes = New System.Windows.Forms.RadioButton()
+        Me.RadServiciosRealizado = New System.Windows.Forms.RadioButton()
+        Me.Panel12 = New System.Windows.Forms.Panel()
+        Me.RadConSC = New System.Windows.Forms.RadioButton()
+        Me.RadSinSC = New System.Windows.Forms.RadioButton()
+        Me.Panel11 = New System.Windows.Forms.Panel()
+        Me.RadConFactura = New System.Windows.Forms.RadioButton()
+        Me.RadSinFactura = New System.Windows.Forms.RadioButton()
+        Me.Panel10 = New System.Windows.Forms.Panel()
+        Me.RadConOC = New System.Windows.Forms.RadioButton()
+        Me.RadSinOC = New System.Windows.Forms.RadioButton()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.CheckMayorA = New System.Windows.Forms.CheckBox()
         Me.NMayorA = New System.Windows.Forms.NumericUpDown()
         Me.Label12 = New System.Windows.Forms.Label()
         Me.NDesdeCotizacion = New System.Windows.Forms.NumericUpDown()
-        Me.CheckConSolC = New System.Windows.Forms.CheckBox()
-        Me.checkSinSolC = New System.Windows.Forms.CheckBox()
-        Me.CheckConFactura = New System.Windows.Forms.CheckBox()
-        Me.CheckConOC = New System.Windows.Forms.CheckBox()
-        Me.CheckSinFactura = New System.Windows.Forms.CheckBox()
-        Me.CheckSinOc = New System.Windows.Forms.CheckBox()
         Me.TiempoDeEsperaBusqueda = New System.Windows.Forms.Timer(Me.components)
         Me.Panel1.SuspendLayout()
         CType(Me.Tamaño, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -143,6 +148,10 @@ Partial Class frmCotizacion
         CType(Me.maximo, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel9.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
+        Me.GroupBox3.SuspendLayout()
+        Me.Panel12.SuspendLayout()
+        Me.Panel11.SuspendLayout()
+        Me.Panel10.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         CType(Me.NMayorA, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.NDesdeCotizacion, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -230,7 +239,7 @@ Partial Class frmCotizacion
         Me.Panel2.Location = New System.Drawing.Point(5, 41)
         Me.Panel2.Name = "Panel2"
         Me.Panel2.Padding = New System.Windows.Forms.Padding(5)
-        Me.Panel2.Size = New System.Drawing.Size(1346, 437)
+        Me.Panel2.Size = New System.Drawing.Size(1346, 475)
         Me.Panel2.TabIndex = 1
         '
         'Panel7
@@ -240,10 +249,10 @@ Partial Class frmCotizacion
         Me.Panel7.Controls.Add(Me.Panel14)
         Me.Panel7.Controls.Add(Me.Panel13)
         Me.Panel7.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Panel7.Location = New System.Drawing.Point(851, 173)
+        Me.Panel7.Location = New System.Drawing.Point(851, 192)
         Me.Panel7.Name = "Panel7"
         Me.Panel7.Padding = New System.Windows.Forms.Padding(8)
-        Me.Panel7.Size = New System.Drawing.Size(490, 259)
+        Me.Panel7.Size = New System.Drawing.Size(490, 278)
         Me.Panel7.TabIndex = 2
         '
         'Panel8
@@ -509,10 +518,10 @@ Partial Class frmCotizacion
         Me.CotizacionesPanel.Controls.Add(Me.tablaCOT)
         Me.CotizacionesPanel.Controls.Add(Me.Panel6)
         Me.CotizacionesPanel.Dock = System.Windows.Forms.DockStyle.Left
-        Me.CotizacionesPanel.Location = New System.Drawing.Point(5, 173)
+        Me.CotizacionesPanel.Location = New System.Drawing.Point(5, 192)
         Me.CotizacionesPanel.Name = "CotizacionesPanel"
         Me.CotizacionesPanel.Padding = New System.Windows.Forms.Padding(5)
-        Me.CotizacionesPanel.Size = New System.Drawing.Size(846, 259)
+        Me.CotizacionesPanel.Size = New System.Drawing.Size(846, 278)
         Me.CotizacionesPanel.TabIndex = 1
         '
         'tablaCOT
@@ -524,7 +533,7 @@ Partial Class frmCotizacion
         Me.tablaCOT.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
         Me.tablaCOT.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal
         Me.tablaCOT.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.tablaCOT.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.cot, Me.fecha, Me.atq, Me.total, Me.OC, Me.FACTURA, Me.SC, Me.PAGADO, Me.METODO, Me.SUBTOTAL, Me.tipo, Me.obser, Me.Sservicio, Me.fecha_fac, Me.ColIdServicio})
+        Me.tablaCOT.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.cot, Me.fecha, Me.atq, Me.total, Me.OC, Me.FACTURA, Me.SC, Me.PAGADO, Me.METODO, Me.SUBTOTAL, Me.tipo, Me.obser, Me.Sservicio, Me.fecha_fac, Me.ColIdServicio, Me.colRealizados})
         Me.tablaCOT.Dock = System.Windows.Forms.DockStyle.Fill
         Me.tablaCOT.GridColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.tablaCOT.Location = New System.Drawing.Point(5, 5)
@@ -535,7 +544,7 @@ Partial Class frmCotizacion
         Me.tablaCOT.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.White
         Me.tablaCOT.RowTemplate.Height = 28
         Me.tablaCOT.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.tablaCOT.Size = New System.Drawing.Size(832, 217)
+        Me.tablaCOT.Size = New System.Drawing.Size(832, 236)
         Me.tablaCOT.TabIndex = 0
         '
         'cot
@@ -680,6 +689,12 @@ Partial Class frmCotizacion
         Me.ColIdServicio.ReadOnly = True
         Me.ColIdServicio.Visible = False
         '
+        'colRealizados
+        '
+        Me.colRealizados.HeaderText = "colRealizados"
+        Me.colRealizados.Name = "colRealizados"
+        Me.colRealizados.ReadOnly = True
+        '
         'Panel6
         '
         Me.Panel6.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
@@ -688,7 +703,7 @@ Partial Class frmCotizacion
         Me.Panel6.Controls.Add(Me.lblcount)
         Me.Panel6.Controls.Add(Me.Label6)
         Me.Panel6.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.Panel6.Location = New System.Drawing.Point(5, 222)
+        Me.Panel6.Location = New System.Drawing.Point(5, 241)
         Me.Panel6.Name = "Panel6"
         Me.Panel6.Size = New System.Drawing.Size(832, 28)
         Me.Panel6.TabIndex = 1
@@ -741,9 +756,6 @@ Partial Class frmCotizacion
         Me.Panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Panel3.Controls.Add(Me.btnMayor)
         Me.Panel3.Controls.Add(Me.btnMenor)
-        Me.Panel3.Controls.Add(Me.Button1)
-        Me.Panel3.Controls.Add(Me.btnSinFac)
-        Me.Panel3.Controls.Add(Me.btnSinOC)
         Me.Panel3.Controls.Add(Me.Panel5)
         Me.Panel3.Controls.Add(Me.Label5)
         Me.Panel3.Controls.Add(Me.txtsc)
@@ -755,7 +767,7 @@ Partial Class frmCotizacion
         Me.Panel3.Controls.Add(Me.txtCOT)
         Me.Panel3.Controls.Add(Me.Label2)
         Me.Panel3.Dock = System.Windows.Forms.DockStyle.Top
-        Me.Panel3.Location = New System.Drawing.Point(5, 123)
+        Me.Panel3.Location = New System.Drawing.Point(5, 142)
         Me.Panel3.Name = "Panel3"
         Me.Panel3.Padding = New System.Windows.Forms.Padding(6, 4, 4, 6)
         Me.Panel3.Size = New System.Drawing.Size(1336, 50)
@@ -767,9 +779,9 @@ Partial Class frmCotizacion
         Me.btnMayor.Dock = System.Windows.Forms.DockStyle.Left
         Me.btnMayor.Image = CType(resources.GetObject("btnMayor.Image"), System.Drawing.Image)
         Me.btnMayor.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnMayor.Location = New System.Drawing.Point(1167, 4)
+        Me.btnMayor.Location = New System.Drawing.Point(889, 4)
         Me.btnMayor.Name = "btnMayor"
-        Me.btnMayor.Size = New System.Drawing.Size(80, 38)
+        Me.btnMayor.Size = New System.Drawing.Size(113, 38)
         Me.btnMayor.TabIndex = 13
         Me.btnMayor.Text = "PRECIO"
         Me.btnMayor.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -781,55 +793,13 @@ Partial Class frmCotizacion
         Me.btnMenor.Dock = System.Windows.Forms.DockStyle.Left
         Me.btnMenor.Image = CType(resources.GetObject("btnMenor.Image"), System.Drawing.Image)
         Me.btnMenor.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnMenor.Location = New System.Drawing.Point(1093, 4)
+        Me.btnMenor.Location = New System.Drawing.Point(786, 4)
         Me.btnMenor.Name = "btnMenor"
-        Me.btnMenor.Size = New System.Drawing.Size(74, 38)
+        Me.btnMenor.Size = New System.Drawing.Size(103, 38)
         Me.btnMenor.TabIndex = 12
         Me.btnMenor.Text = "MENOR"
         Me.btnMenor.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.btnMenor.UseVisualStyleBackColor = False
-        '
-        'Button1
-        '
-        Me.Button1.BackColor = System.Drawing.Color.White
-        Me.Button1.Dock = System.Windows.Forms.DockStyle.Left
-        Me.Button1.Image = CType(resources.GetObject("Button1.Image"), System.Drawing.Image)
-        Me.Button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Button1.Location = New System.Drawing.Point(996, 4)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(97, 38)
-        Me.Button1.TabIndex = 11
-        Me.Button1.Text = "SIN FAC"
-        Me.Button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.Button1.UseVisualStyleBackColor = False
-        '
-        'btnSinFac
-        '
-        Me.btnSinFac.BackColor = System.Drawing.Color.White
-        Me.btnSinFac.Dock = System.Windows.Forms.DockStyle.Left
-        Me.btnSinFac.Image = CType(resources.GetObject("btnSinFac.Image"), System.Drawing.Image)
-        Me.btnSinFac.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnSinFac.Location = New System.Drawing.Point(872, 4)
-        Me.btnSinFac.Name = "btnSinFac"
-        Me.btnSinFac.Size = New System.Drawing.Size(124, 38)
-        Me.btnSinFac.TabIndex = 10
-        Me.btnSinFac.Text = "CON OC S/FAC"
-        Me.btnSinFac.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.btnSinFac.UseVisualStyleBackColor = False
-        '
-        'btnSinOC
-        '
-        Me.btnSinOC.BackColor = System.Drawing.Color.White
-        Me.btnSinOC.Dock = System.Windows.Forms.DockStyle.Left
-        Me.btnSinOC.Image = CType(resources.GetObject("btnSinOC.Image"), System.Drawing.Image)
-        Me.btnSinOC.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnSinOC.Location = New System.Drawing.Point(786, 4)
-        Me.btnSinOC.Name = "btnSinOC"
-        Me.btnSinOC.Size = New System.Drawing.Size(86, 38)
-        Me.btnSinOC.TabIndex = 9
-        Me.btnSinOC.Text = "SIN OC"
-        Me.btnSinOC.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.btnSinOC.UseVisualStyleBackColor = False
         '
         'Panel5
         '
@@ -952,7 +922,7 @@ Partial Class frmCotizacion
         Me.Panel9.Dock = System.Windows.Forms.DockStyle.Top
         Me.Panel9.Location = New System.Drawing.Point(5, 5)
         Me.Panel9.Name = "Panel9"
-        Me.Panel9.Size = New System.Drawing.Size(1336, 118)
+        Me.Panel9.Size = New System.Drawing.Size(1336, 137)
         Me.Panel9.TabIndex = 6
         '
         'btnBusquedaAvanzada
@@ -970,27 +940,162 @@ Partial Class frmCotizacion
         '
         'GroupBox1
         '
+        Me.GroupBox1.Controls.Add(Me.GroupBox3)
+        Me.GroupBox1.Controls.Add(Me.Panel12)
+        Me.GroupBox1.Controls.Add(Me.Panel11)
+        Me.GroupBox1.Controls.Add(Me.Panel10)
         Me.GroupBox1.Controls.Add(Me.GroupBox2)
         Me.GroupBox1.Controls.Add(Me.Label12)
         Me.GroupBox1.Controls.Add(Me.NDesdeCotizacion)
-        Me.GroupBox1.Controls.Add(Me.CheckConSolC)
-        Me.GroupBox1.Controls.Add(Me.checkSinSolC)
-        Me.GroupBox1.Controls.Add(Me.CheckConFactura)
-        Me.GroupBox1.Controls.Add(Me.CheckConOC)
-        Me.GroupBox1.Controls.Add(Me.CheckSinFactura)
-        Me.GroupBox1.Controls.Add(Me.CheckSinOc)
         Me.GroupBox1.Location = New System.Drawing.Point(5, 6)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(1110, 109)
+        Me.GroupBox1.Size = New System.Drawing.Size(1110, 125)
         Me.GroupBox1.TabIndex = 0
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Busqueda Avanzada"
+        '
+        'GroupBox3
+        '
+        Me.GroupBox3.Controls.Add(Me.RadServiciosTodos)
+        Me.GroupBox3.Controls.Add(Me.RadServiciosPendientes)
+        Me.GroupBox3.Controls.Add(Me.RadServiciosRealizado)
+        Me.GroupBox3.Location = New System.Drawing.Point(285, 65)
+        Me.GroupBox3.Name = "GroupBox3"
+        Me.GroupBox3.Size = New System.Drawing.Size(339, 47)
+        Me.GroupBox3.TabIndex = 15
+        Me.GroupBox3.TabStop = False
+        Me.GroupBox3.Text = "Servicio"
+        '
+        'RadServiciosTodos
+        '
+        Me.RadServiciosTodos.AutoSize = True
+        Me.RadServiciosTodos.Location = New System.Drawing.Point(262, 19)
+        Me.RadServiciosTodos.Name = "RadServiciosTodos"
+        Me.RadServiciosTodos.Size = New System.Drawing.Size(60, 19)
+        Me.RadServiciosTodos.TabIndex = 2
+        Me.RadServiciosTodos.Text = "Todos"
+        Me.RadServiciosTodos.UseVisualStyleBackColor = True
+        '
+        'RadServiciosPendientes
+        '
+        Me.RadServiciosPendientes.AutoSize = True
+        Me.RadServiciosPendientes.Location = New System.Drawing.Point(128, 19)
+        Me.RadServiciosPendientes.Name = "RadServiciosPendientes"
+        Me.RadServiciosPendientes.Size = New System.Drawing.Size(95, 19)
+        Me.RadServiciosPendientes.TabIndex = 1
+        Me.RadServiciosPendientes.Text = "Pendientes"
+        Me.RadServiciosPendientes.UseVisualStyleBackColor = True
+        '
+        'RadServiciosRealizado
+        '
+        Me.RadServiciosRealizado.AutoSize = True
+        Me.RadServiciosRealizado.Checked = True
+        Me.RadServiciosRealizado.Location = New System.Drawing.Point(9, 19)
+        Me.RadServiciosRealizado.Name = "RadServiciosRealizado"
+        Me.RadServiciosRealizado.Size = New System.Drawing.Size(88, 19)
+        Me.RadServiciosRealizado.TabIndex = 0
+        Me.RadServiciosRealizado.TabStop = True
+        Me.RadServiciosRealizado.Text = "Realizado"
+        Me.RadServiciosRealizado.UseVisualStyleBackColor = True
+        '
+        'Panel12
+        '
+        Me.Panel12.Controls.Add(Me.RadConSC)
+        Me.Panel12.Controls.Add(Me.RadSinSC)
+        Me.Panel12.Location = New System.Drawing.Point(445, 19)
+        Me.Panel12.Name = "Panel12"
+        Me.Panel12.Size = New System.Drawing.Size(156, 30)
+        Me.Panel12.TabIndex = 14
+        '
+        'RadConSC
+        '
+        Me.RadConSC.AutoSize = True
+        Me.RadConSC.Location = New System.Drawing.Point(81, 5)
+        Me.RadConSC.Name = "RadConSC"
+        Me.RadConSC.Size = New System.Drawing.Size(67, 19)
+        Me.RadConSC.TabIndex = 1
+        Me.RadConSC.Text = "Con SC"
+        Me.RadConSC.UseVisualStyleBackColor = True
+        '
+        'RadSinSC
+        '
+        Me.RadSinSC.AutoSize = True
+        Me.RadSinSC.Checked = True
+        Me.RadSinSC.Location = New System.Drawing.Point(8, 5)
+        Me.RadSinSC.Name = "RadSinSC"
+        Me.RadSinSC.Size = New System.Drawing.Size(67, 19)
+        Me.RadSinSC.TabIndex = 0
+        Me.RadSinSC.TabStop = True
+        Me.RadSinSC.Text = "Sin SC"
+        Me.RadSinSC.UseVisualStyleBackColor = True
+        '
+        'Panel11
+        '
+        Me.Panel11.Controls.Add(Me.RadConFactura)
+        Me.Panel11.Controls.Add(Me.RadSinFactura)
+        Me.Panel11.Location = New System.Drawing.Point(182, 19)
+        Me.Panel11.Name = "Panel11"
+        Me.Panel11.Size = New System.Drawing.Size(247, 30)
+        Me.Panel11.TabIndex = 13
+        '
+        'RadConFactura
+        '
+        Me.RadConFactura.AutoSize = True
+        Me.RadConFactura.Location = New System.Drawing.Point(135, 5)
+        Me.RadConFactura.Name = "RadConFactura"
+        Me.RadConFactura.Size = New System.Drawing.Size(102, 19)
+        Me.RadConFactura.TabIndex = 1
+        Me.RadConFactura.Text = "Con Factura"
+        Me.RadConFactura.UseVisualStyleBackColor = True
+        '
+        'RadSinFactura
+        '
+        Me.RadSinFactura.AutoSize = True
+        Me.RadSinFactura.Checked = True
+        Me.RadSinFactura.Location = New System.Drawing.Point(8, 5)
+        Me.RadSinFactura.Name = "RadSinFactura"
+        Me.RadSinFactura.Size = New System.Drawing.Size(102, 19)
+        Me.RadSinFactura.TabIndex = 0
+        Me.RadSinFactura.TabStop = True
+        Me.RadSinFactura.Text = "Sin Factura"
+        Me.RadSinFactura.UseVisualStyleBackColor = True
+        '
+        'Panel10
+        '
+        Me.Panel10.Controls.Add(Me.RadConOC)
+        Me.Panel10.Controls.Add(Me.RadSinOC)
+        Me.Panel10.Location = New System.Drawing.Point(3, 19)
+        Me.Panel10.Name = "Panel10"
+        Me.Panel10.Size = New System.Drawing.Size(156, 30)
+        Me.Panel10.TabIndex = 12
+        '
+        'RadConOC
+        '
+        Me.RadConOC.AutoSize = True
+        Me.RadConOC.Location = New System.Drawing.Point(81, 5)
+        Me.RadConOC.Name = "RadConOC"
+        Me.RadConOC.Size = New System.Drawing.Size(67, 19)
+        Me.RadConOC.TabIndex = 1
+        Me.RadConOC.Text = "Con OC"
+        Me.RadConOC.UseVisualStyleBackColor = True
+        '
+        'RadSinOC
+        '
+        Me.RadSinOC.AutoSize = True
+        Me.RadSinOC.Checked = True
+        Me.RadSinOC.Location = New System.Drawing.Point(8, 5)
+        Me.RadSinOC.Name = "RadSinOC"
+        Me.RadSinOC.Size = New System.Drawing.Size(67, 19)
+        Me.RadSinOC.TabIndex = 0
+        Me.RadSinOC.TabStop = True
+        Me.RadSinOC.Text = "Sin OC"
+        Me.RadSinOC.UseVisualStyleBackColor = True
         '
         'GroupBox2
         '
         Me.GroupBox2.Controls.Add(Me.CheckMayorA)
         Me.GroupBox2.Controls.Add(Me.NMayorA)
-        Me.GroupBox2.Location = New System.Drawing.Point(11, 55)
+        Me.GroupBox2.Location = New System.Drawing.Point(6, 70)
         Me.GroupBox2.Name = "GroupBox2"
         Me.GroupBox2.Size = New System.Drawing.Size(255, 48)
         Me.GroupBox2.TabIndex = 11
@@ -1034,73 +1139,7 @@ Partial Class frmCotizacion
         Me.NDesdeCotizacion.Name = "NDesdeCotizacion"
         Me.NDesdeCotizacion.Size = New System.Drawing.Size(120, 23)
         Me.NDesdeCotizacion.TabIndex = 7
-        Me.NDesdeCotizacion.Value = New Decimal(New Integer() {3000, 0, 0, 0})
-        '
-        'CheckConSolC
-        '
-        Me.CheckConSolC.AutoSize = True
-        Me.CheckConSolC.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.CheckConSolC.Location = New System.Drawing.Point(527, 22)
-        Me.CheckConSolC.Name = "CheckConSolC"
-        Me.CheckConSolC.Size = New System.Drawing.Size(74, 24)
-        Me.CheckConSolC.TabIndex = 6
-        Me.CheckConSolC.Text = "Con SC"
-        Me.CheckConSolC.UseVisualStyleBackColor = True
-        '
-        'checkSinSolC
-        '
-        Me.checkSinSolC.AutoSize = True
-        Me.checkSinSolC.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.checkSinSolC.Location = New System.Drawing.Point(617, 21)
-        Me.checkSinSolC.Name = "checkSinSolC"
-        Me.checkSinSolC.Size = New System.Drawing.Size(69, 24)
-        Me.checkSinSolC.TabIndex = 5
-        Me.checkSinSolC.Text = "Sin SC"
-        Me.checkSinSolC.UseVisualStyleBackColor = True
-        '
-        'CheckConFactura
-        '
-        Me.CheckConFactura.AutoSize = True
-        Me.CheckConFactura.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.CheckConFactura.Location = New System.Drawing.Point(267, 21)
-        Me.CheckConFactura.Name = "CheckConFactura"
-        Me.CheckConFactura.Size = New System.Drawing.Size(99, 24)
-        Me.CheckConFactura.TabIndex = 4
-        Me.CheckConFactura.Text = "Con Factura"
-        Me.CheckConFactura.UseVisualStyleBackColor = True
-        '
-        'CheckConOC
-        '
-        Me.CheckConOC.AutoSize = True
-        Me.CheckConOC.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.CheckConOC.Location = New System.Drawing.Point(87, 22)
-        Me.CheckConOC.Name = "CheckConOC"
-        Me.CheckConOC.Size = New System.Drawing.Size(75, 24)
-        Me.CheckConOC.TabIndex = 3
-        Me.CheckConOC.Text = "Con OC"
-        Me.CheckConOC.UseVisualStyleBackColor = True
-        '
-        'CheckSinFactura
-        '
-        Me.CheckSinFactura.AutoSize = True
-        Me.CheckSinFactura.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.CheckSinFactura.Location = New System.Drawing.Point(372, 21)
-        Me.CheckSinFactura.Name = "CheckSinFactura"
-        Me.CheckSinFactura.Size = New System.Drawing.Size(94, 24)
-        Me.CheckSinFactura.TabIndex = 2
-        Me.CheckSinFactura.Text = "Sin Factura"
-        Me.CheckSinFactura.UseVisualStyleBackColor = True
-        '
-        'CheckSinOc
-        '
-        Me.CheckSinOc.AutoSize = True
-        Me.CheckSinOc.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.CheckSinOc.Location = New System.Drawing.Point(11, 22)
-        Me.CheckSinOc.Name = "CheckSinOc"
-        Me.CheckSinOc.Size = New System.Drawing.Size(70, 24)
-        Me.CheckSinOc.TabIndex = 1
-        Me.CheckSinOc.Text = "Sin OC"
-        Me.CheckSinOc.UseVisualStyleBackColor = True
+        Me.NDesdeCotizacion.Value = New Decimal(New Integer() {4750, 0, 0, 0})
         '
         'TiempoDeEsperaBusqueda
         '
@@ -1109,7 +1148,7 @@ Partial Class frmCotizacion
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 15.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1356, 518)
+        Me.ClientSize = New System.Drawing.Size(1356, 556)
         Me.ControlBox = False
         Me.Controls.Add(Me.Panel2)
         Me.Controls.Add(Me.Panel1)
@@ -1151,6 +1190,14 @@ Partial Class frmCotizacion
         Me.Panel9.ResumeLayout(False)
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
+        Me.GroupBox3.ResumeLayout(False)
+        Me.GroupBox3.PerformLayout()
+        Me.Panel12.ResumeLayout(False)
+        Me.Panel12.PerformLayout()
+        Me.Panel11.ResumeLayout(False)
+        Me.Panel11.PerformLayout()
+        Me.Panel10.ResumeLayout(False)
+        Me.Panel10.PerformLayout()
         Me.GroupBox2.ResumeLayout(False)
         Me.GroupBox2.PerformLayout()
         CType(Me.NMayorA, System.ComponentModel.ISupportInitialize).EndInit()
@@ -1173,7 +1220,6 @@ Partial Class frmCotizacion
     Friend WithEvents Panel5 As System.Windows.Forms.Panel
     Friend WithEvents maximo As System.Windows.Forms.NumericUpDown
     Friend WithEvents Label5 As System.Windows.Forms.Label
-    Friend WithEvents btnSinOC As System.Windows.Forms.Button
     Friend WithEvents Panel6 As System.Windows.Forms.Panel
     Friend WithEvents lblcount As System.Windows.Forms.Label
     Friend WithEvents Label6 As System.Windows.Forms.Label
@@ -1185,8 +1231,6 @@ Partial Class frmCotizacion
     Friend WithEvents lbltotal As System.Windows.Forms.Label
     Friend WithEvents Label8 As System.Windows.Forms.Label
     Friend WithEvents btnDetalle As System.Windows.Forms.Button
-    Friend WithEvents btnSinFac As System.Windows.Forms.Button
-    Friend WithEvents Button1 As System.Windows.Forms.Button
     Friend WithEvents btnMenor As System.Windows.Forms.Button
     Friend WithEvents btnMayor As System.Windows.Forms.Button
     Friend WithEvents Tamaño As System.Windows.Forms.TrackBar
@@ -1212,21 +1256,6 @@ Partial Class frmCotizacion
     Friend WithEvents TabPage1 As System.Windows.Forms.TabPage
     Friend WithEvents TabPage2 As System.Windows.Forms.TabPage
     Friend WithEvents GridDetalle As System.Windows.Forms.DataGridView
-    Friend WithEvents cot As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents fecha As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents atq As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents total As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents OC As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents FACTURA As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents SC As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents PAGADO As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents METODO As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents SUBTOTAL As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents tipo As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents obser As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents Sservicio As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents fecha_fac As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents ColIdServicio As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn4 As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn5 As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn6 As System.Windows.Forms.DataGridViewTextBoxColumn
@@ -1235,15 +1264,38 @@ Partial Class frmCotizacion
     Friend WithEvents Panel9 As System.Windows.Forms.Panel
     Friend WithEvents btnBusquedaAvanzada As System.Windows.Forms.Button
     Friend WithEvents GroupBox1 As System.Windows.Forms.GroupBox
-    Friend WithEvents CheckSinFactura As System.Windows.Forms.CheckBox
-    Friend WithEvents CheckSinOc As System.Windows.Forms.CheckBox
-    Friend WithEvents CheckConSolC As System.Windows.Forms.CheckBox
-    Friend WithEvents checkSinSolC As System.Windows.Forms.CheckBox
-    Friend WithEvents CheckConFactura As System.Windows.Forms.CheckBox
-    Friend WithEvents CheckConOC As System.Windows.Forms.CheckBox
     Friend WithEvents Label12 As System.Windows.Forms.Label
     Friend WithEvents NDesdeCotizacion As System.Windows.Forms.NumericUpDown
     Friend WithEvents GroupBox2 As System.Windows.Forms.GroupBox
     Friend WithEvents CheckMayorA As System.Windows.Forms.CheckBox
     Friend WithEvents NMayorA As System.Windows.Forms.NumericUpDown
+    Friend WithEvents Panel10 As Panel
+    Friend WithEvents RadConOC As RadioButton
+    Friend WithEvents RadSinOC As RadioButton
+    Friend WithEvents Panel12 As Panel
+    Friend WithEvents RadConSC As RadioButton
+    Friend WithEvents RadSinSC As RadioButton
+    Friend WithEvents Panel11 As Panel
+    Friend WithEvents RadConFactura As RadioButton
+    Friend WithEvents RadSinFactura As RadioButton
+    Friend WithEvents GroupBox3 As GroupBox
+    Friend WithEvents RadServiciosTodos As RadioButton
+    Friend WithEvents RadServiciosPendientes As RadioButton
+    Friend WithEvents RadServiciosRealizado As RadioButton
+    Friend WithEvents cot As DataGridViewTextBoxColumn
+    Friend WithEvents fecha As DataGridViewTextBoxColumn
+    Friend WithEvents atq As DataGridViewTextBoxColumn
+    Friend WithEvents total As DataGridViewTextBoxColumn
+    Friend WithEvents OC As DataGridViewTextBoxColumn
+    Friend WithEvents FACTURA As DataGridViewTextBoxColumn
+    Friend WithEvents SC As DataGridViewTextBoxColumn
+    Friend WithEvents PAGADO As DataGridViewTextBoxColumn
+    Friend WithEvents METODO As DataGridViewTextBoxColumn
+    Friend WithEvents SUBTOTAL As DataGridViewTextBoxColumn
+    Friend WithEvents tipo As DataGridViewTextBoxColumn
+    Friend WithEvents obser As DataGridViewTextBoxColumn
+    Friend WithEvents Sservicio As DataGridViewTextBoxColumn
+    Friend WithEvents fecha_fac As DataGridViewTextBoxColumn
+    Friend WithEvents ColIdServicio As DataGridViewTextBoxColumn
+    Friend WithEvents colRealizados As DataGridViewTextBoxColumn
 End Class

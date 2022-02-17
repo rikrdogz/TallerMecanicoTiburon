@@ -22,8 +22,11 @@ Public Class InicioDeSesion
 
 
         mostrar_users()
-        CbData.SelectedIndex = 0
-        CBUsuario.Focus()
+        If (CbData.Items.Count > 0) Then
+            CbData.SelectedIndex = 0
+            CBUsuario.Focus()
+        End If
+
 
     End Sub
     Private Sub conectar_bd()
